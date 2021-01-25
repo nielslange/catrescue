@@ -37,6 +37,9 @@ require_once get_stylesheet_directory() . '/lib/customize.php';
 // Includes Customizer CSS.
 require_once get_stylesheet_directory() . '/lib/output.php';
 
+// Includes CPT.
+require_once get_stylesheet_directory() . '/lib/cpt.php';
+
 // Adds WooCommerce support.
 require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-setup.php';
 
@@ -95,6 +98,7 @@ function monochrome_enqueue_scripts_styles() {
 	wp_enqueue_script( 'monochrome-responsive-menu', get_stylesheet_directory_uri() . '/js/responsive-menus' . $suffix . '.js', [ 'jquery' ], genesis_get_theme_version(), true );
 	wp_localize_script( 'monochrome-responsive-menu', 'genesis_responsive_menu', monochrome_responsive_menu_settings() );
 
+	wp_enqueue_script( 'clear-search-form',  get_stylesheet_directory_uri() . '/js/clear-search-form.js', array( 'jquery' ), '1.0.0', true );
 }
 
 /**
@@ -176,31 +180,15 @@ function monochrome_add_search_icon() {
 		return;
 	}
 
-	add_action( 'genesis_header', 'monochrome_do_header_search_form', 14 );
-	add_filter( 'genesis_nav_items', 'monochrome_add_search_menu_item', 10, 2 );
-	add_filter( 'wp_nav_menu_items', 'monochrome_add_search_menu_item', 10, 2 );
+add_action( 'genesis_header', 'monochrome_do_header_search_form', 14 );
+add_action( 'genesis_header', 'monochrome_add_search_menu_item' );
 
 }
 
-/**
- * Modifies the menu item output of the header menu.
- *
- * @since 1.0.0
- *
- * @param string $items The menu HTML.
- * @param array  $args The menu options.
- * @return string Updated menu HTML.
- */
-function monochrome_add_search_menu_item( $items, $args ) {
-
-	$search_toggle = sprintf( '<li class="menu-item">%s</li>', monochrome_get_header_search_toggle() );
-
-	if ( 'primary' === $args->theme_location ) {
-		$items .= $search_toggle;
-	}
-
-	return $items;
-
+// Function to modify the menu item output of the Header Menu.
+function monochrome_add_search_menu_item() {
+  $search_toggle = sprintf( '<button class="btn-search">%s</button>', monochrome_get_header_search_toggle() );
+  echo $search_toggle;
 }
 
 add_filter( 'wp_nav_menu_args', 'monochrome_secondary_menu_args' );
@@ -415,3 +403,18 @@ function filter_ninja_forms_currency_symbol( $array ) {
 	return $array;
 };
 add_filter( 'ninja_forms_currency_symbol', 'filter_ninja_forms_currency_symbol', 10, 11 );
+
+/**
+ * Exclude certain pages from the search results
+ * 
+ * @param object $query The original query object.
+ * @return array $array The updated query object.
+ */
+function exclude_pages_from_search( $query ) {
+	if ( $query->is_search ) {
+		$query->set( 'post__not_in', array( 2191 ) ); 
+	}
+	
+	return $query;
+}
+add_filter( 'pre_get_posts', 'exclude_pages_from_search' );

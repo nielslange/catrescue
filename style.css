@@ -150,7 +150,7 @@ body {
 	background-color: #fff;
 	color: #000;
 	font-family: Muli, sans-serif;
-	font-size: 18px;
+	font-size: 17px;
 	font-weight: 300;
 	line-height: 1.875;
 	margin: 0;
@@ -262,9 +262,9 @@ h4,
 h5,
 h6 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 1.2;
-	margin: 0 0 10px;
+	margin: -5px 0 20px;
 }
 
 h1 {
@@ -581,7 +581,8 @@ th {
 	text-align: left;
 }
 
-td {
+td,
+th {
 	border-top: 1px solid #eee;
 	padding: 6px;
 }
@@ -665,6 +666,10 @@ th:first-child {
 	position: relative;
 	word-wrap: break-word;
 	z-index: 999;
+}
+
+.site-innerimg {
+	border-radius: 3px;
 }
 
 .archive .site-inner,
@@ -861,6 +866,14 @@ th:first-child {
 .archive-description p:last-of-type,
 .author-box p:last-of-type {
 	margin-bottom: 0;
+}
+
+@media only screen and (max-width: 1023px) {
+
+	.archive-description {
+		margin-bottom: 30px;
+	}
+	
 }
 
 /* Search Form
@@ -1577,6 +1590,30 @@ img.alignright,
 	transform: scale(3);
 }
 
+/* Search Form Customizations */
+.btn-search {
+  float: right;
+  background: transparent;
+  padding: 20px 9px 20px 15px;
+  margin-top: 5px;
+}
+.btn-search:hover {
+  background: transparent;
+  box-shadow: none;
+}
+.btn-search a {
+  color: #000000;
+}
+.btn-search a:hover {
+  color: #0066cc;
+}
+@media only screen and (max-width: 1023px) {
+  .btn-search {
+		margin-left: 10px;
+		padding-right: 25px;
+  }
+}
+
 /* Footer Menu
 --------------------------------------------- */
 
@@ -1711,6 +1748,14 @@ p.center {
 	text-align: center;
 }
 
+@media only screen and (max-width: 1023px) {
+
+	.entry {
+		margin-bottom: 20px;
+	}
+	
+}
+
 /* Entry Messages
 --------------------------------------------- */
 
@@ -1809,6 +1854,17 @@ p.entry-meta {
 .entry-categories,
 .entry-tags {
 	display: block;
+}
+
+@media only screen and (max-width: 1023px) {
+
+	.entry-header::after {
+		border-bottom: none;
+		display: block;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+	}
+	
 }
 
 /* Pagination
@@ -2073,6 +2129,16 @@ p.entry-meta {
 	width: auto;
 }
 
+@media only screen and (max-width: 1023px) {
+
+	.site-footer p {
+		padding: 0 20px;
+		line-height: 2;
+	}
+	
+}
+
+
 
 /* Media Queries
 ---------------------------------------------------------------------------- */
@@ -2095,6 +2161,10 @@ p.entry-meta {
 }
 
 @media only screen and (max-width: 1023px) {
+
+	.site-inner {
+		margin-top: 40px;
+	}
 
 	.before-footer-cta .wrap,
 	.site-inner {
@@ -2386,3 +2456,70 @@ p.entry-meta {
 .nf-progress {
 	background-color: #329ad1;
 }
+
+
+/* CPT Cats
+---------------------------------------------------------------------------- */
+
+.post-type-archive-cats .site-inner .content .entry {
+	margin-bottom: 50px;
+}
+
+.post-type-archive-cats .site-inner .content .entry ul {
+	margin: 0;
+}
+
+.post-type-archive-cats .site-inner .content .entry li {
+	list-style-type: none;
+}
+
+.post-type-archive-cats .site-inner .content .entry li::before {
+	content: '» ';
+}
+
+.post-type-archive-cats .site-inner .content .entry a {
+	text-decoration: underline;
+}
+
+.post-type-archive-cats.full-width-content .content {
+	width: 100%;
+}
+
+.post-type-archive-cats .entry-content table {
+	margin-bottom: 10px;
+}
+
+.post-type-archive-cats .entry-content a {
+	position: relative;
+}
+
+.post-type-archive-cats .entry-content a img {
+	border-radius: 3px;
+}
+
+.post-type-archive-cats .entry-content a.image strong {
+	background: #f4b759;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	color: #2E3440;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	padding: 5px;
+}
+
+.single-cats #genesis-content img {
+	max-width: calc(100% - 1em);
+	margin: 0 1em 1.5em 1px;
+}
+
+.single-cats .site-inner {
+	margin-bottom: 100px;	
+}
+
+.single-cats .site-inner .content {
+	width: 100%
+}
+
