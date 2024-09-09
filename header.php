@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Waterman
+ * @package Catrescue
  * @since 1.0
  * @author Niels Lange
  * @license GPL v2 or later
@@ -25,7 +25,7 @@
 	<header id="site-header">
 		<div class="header-inner">
 			<div class="site-logo">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><strong>CAT</strong>RESCUE.<strong>ID</strong></a>
 			</div>
 			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
 				<nav id="header-menu">
@@ -53,5 +53,4 @@
 				</nav>
 			<?php endif; ?>
 		</div>
-		<div class="header-image"></div>
 	</header>

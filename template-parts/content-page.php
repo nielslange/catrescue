@@ -2,7 +2,7 @@
 /**
  * Template part for displaying pages
  *
- * @package Waterman
+ * @package Catrescue
  */
 
 // Bail out if Polylang is not active.

@@ -2,7 +2,7 @@
 /**
  * Template part for displaying single post content
  *
- * @package Waterman
+ * @package Catrescue
  */
 
 // Bail out if Polylang is not active.

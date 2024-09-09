@@ -2,13 +2,13 @@
 /**
  * Disallow comments
  *
- * @package Waterman
+ * @package Catrescue
  */
 
 /**
  * Redirect users trying to access the comments page and disable comments features in the dashboard.
  */
-function waterman_disable_comments_in_dashboard() {
+function catrescue_disable_comments_in_dashboard() {
 	global $pagenow;
 
 	// Redirect any user trying to access comments page.
@@ -28,25 +28,25 @@ function waterman_disable_comments_in_dashboard() {
 		}
 	}
 }
-add_action( 'admin_init', 'waterman_disable_comments_in_dashboard' );
+add_action( 'admin_init', 'catrescue_disable_comments_in_dashboard' );
 
 /**
  * Remove comments page from the admin menu.
  */
-function waterman_remove_comments_page() {
+function catrescue_remove_comments_page() {
 	remove_menu_page( 'edit-comments.php' );
 }
-add_action( 'admin_menu', 'waterman_remove_comments_page' );
+add_action( 'admin_menu', 'catrescue_remove_comments_page' );
 
 /**
  * Remove comments links from the admin bar.
  */
-function waterman_remove_comments_from_admin_bar() {
+function catrescue_remove_comments_from_admin_bar() {
 	if ( is_admin_bar_showing() ) {
 		remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
 	}
 }
-add_action( 'init', 'waterman_remove_comments_from_admin_bar' );
+add_action( 'init', 'catrescue_remove_comments_from_admin_bar' );
 
 // Close comments on the front-end.
 add_filter( 'comments_open', '__return_false', 20, 2 );

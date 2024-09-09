@@ -5,7 +5,7 @@
 	<!-- See https://github.com/WordPress/WordPress-Coding-Standards/blob/develop/.phpcs.xml.dist -->
 
 	<!-- Set a description for this ruleset. -->
-	<description>Coding standards used for checking the Waterman theme.</description>
+	<description>Coding standards used for checking the Catrescue theme.</description>
 
 	<!-- Check the entire theme. -->
 	<file>.</file>
@@ -50,7 +50,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="waterman"/>
+				<element value="catrescue"/>
 			</property>
 		</properties>
 	</rule>

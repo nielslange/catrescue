@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Waterman
+ * @package Catrescue
  */
 
 get_header();

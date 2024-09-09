@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages
  *
- * @package Waterman
+ * @package Catrescue
  */
 
 // Bail out if Polylang is not active.

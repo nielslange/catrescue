@@ -7,18 +7,19 @@
 		display: flex;
 		justify-content: space-between;
 		margin: auto;
-		max-width: 900px;
+		// max-width: 900px;
 		padding: 0 20px;
 		height: 60px;
 
 		.site-logo {
 			margin: 0;
-			padding: 13spx;
+			padding: 13px;
 
 			a {
 				border: none;
-				font-size: 20px;
-				font-weight: 700;
+				font-size: 16px;
+				// font-weight: 700;
+				letter-spacing: 1px;
 				text-transform: uppercase;
 			}
 		}
@@ -124,6 +125,7 @@
 							&:hover {
 								ul {
 									display: block;
+									right: 0;
 								}
 							}
 						}
@@ -131,7 +133,7 @@
 						ul {
 							background-color: $nord1;
 							display: none;
-							min-width: 300px;
+							min-width: 200px;
 							position: absolute;
 							z-index: 1;
 							border: 1px solid $nord0;

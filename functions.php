@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Waterman
+ * @package Catrescue
  * @since 1.0
  * @author Niels Lange
  * @license GPL v2 or later
@@ -20,10 +20,11 @@ require get_template_directory() . '/inc/disallow-comments.php';
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
-function waterman_theme_setup() {
+function catrescue_theme_setup() {
 	// Add theme support for features like title tag, post thumbnails, etc.
-	add_theme_support( 'title-tag' );
+	add_theme_support( 'align-wide' );
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'title-tag' );
 
 	// Add theme support for custom logo.
 	$defaults = array(
@@ -51,33 +52,33 @@ function waterman_theme_setup() {
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'after_setup_theme', 'waterman_theme_setup' );
+add_action( 'after_setup_theme', 'catrescue_theme_setup' );
 
 /**
  * Enqueues styles and scripts for the theme.
  */
-function waterman_enqueue_scripts() {
+function catrescue_enqueue_scripts() {
 	$theme   = wp_get_theme();
 	$version = $theme->get( 'Version' );
 
-	wp_enqueue_style( 'waterman-style', get_stylesheet_uri(), array(), $version, 'all' );
-	wp_enqueue_script( 'waterman-script', get_template_directory_uri() . '/assets/js/menu.js', null, $version, true );
+	wp_enqueue_style( 'catrescue-style', get_stylesheet_uri(), array(), $version, 'all' );
+	wp_enqueue_script( 'catrescue-script', get_template_directory_uri() . '/assets/js/menu.js', null, $version, true );
 }
-add_action( 'wp_enqueue_scripts', 'waterman_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'catrescue_enqueue_scripts' );
 
 /**
  * Register Polylang translation strings.
  */
-function waterman_pll_register_string() {
+function catrescue_pll_register_string() {
 	// Bail out if Polylang is not active.
-	if ( ! class_exists( 'Polylang' ) ) {
+	if ( ! function_exists( 'Polylang' ) ) {
 		return;
 	}
 
-	pll_register_string( 'waterman-theme', 'All rights reserved' );
-	pll_register_string( 'waterman-theme', 'by' );
-	pll_register_string( 'waterman-theme', 'Developed with' );
-	pll_register_string( 'waterman-theme', 'Page:' );
-	pll_register_string( 'waterman-theme', 'Search results for: %s' );
+	pll_register_string( 'catrescue-theme', 'All rights reserved' );
+	pll_register_string( 'catrescue-theme', 'by' );
+	pll_register_string( 'catrescue-theme', 'Developed with' );
+	pll_register_string( 'catrescue-theme', 'Page:' );
+	pll_register_string( 'catrescue-theme', 'Search results for: %s' );
 }
-add_action( 'init', 'waterman_pll_register_string' );
+add_action( 'init', 'catrescue_pll_register_string' );
