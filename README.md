@@ -22,13 +22,6 @@ Catrescue is a simple, clean, and responsive WordPress theme for Catrescue.id. I
 
 Catrescue comes with various customization options, such logo settings. To customize the theme, go to `Appearance > Customize` in your WordPress admin panel.
 
-## Credits
-
-Catrescue uses the following fonts:
-
--   [Cantarell](https://github.com/davelab6/cantarell) - Copyright 2009 The Cantarell Project Authors
--   [Fjalla One](https://github.com/SorkinType/FjallaOne) - Copyright 2012 The Fjalla One Project Authors
-
 ## License
 
 Catrescue is licensed under the [GPL v2 or later](https://www.gnu.org/licenses/gpl-2.0.html).
