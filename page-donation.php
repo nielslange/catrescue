@@ -72,7 +72,7 @@ get_header();
 				?>
 
 				<div class="donation-form">
-					<form id="donation-form">
+					<form id="donation-form" data-donation-urls='<?php echo esc_attr( json_encode( $donation_urls ) ); ?>'>
 						<div class="form-group">
 							<label for="donation-type">Type of Donation:</label>
 							<select id="donation-type" name="donation-type">
@@ -97,132 +97,11 @@ get_header();
 							</select>
 						</div>
 
-						<button type="button" id="donate-button" class="button">Donate Now</button>
+						<button type="button" id="donate-button" class="button">Donate now</button>
 					</form>
 				</div>
 
-				<script>
-				document.addEventListener('DOMContentLoaded', function() {
-					const donationUrls = <?php echo json_encode( $donation_urls ); ?>;
-					const donateButton = document.getElementById('donate-button');
-					const typeSelect = document.getElementById('donation-type');
-					const frequencySelect = document.getElementById('donation-frequency');
-					const descriptionBox = document.getElementById('donation-description');
-
-					// Initially disable the button
-					donateButton.disabled = true;
-					donateButton.classList.add('disabled');
-
-					function updateDonateButton() {
-						const selectedType = typeSelect.value;
-						const selectedFrequency = frequencySelect.value;
-
-						// Update description
-						if (selectedType && donationUrls[selectedType].description) {
-							descriptionBox.textContent = donationUrls[selectedType].description;
-							descriptionBox.style.display = 'block';
-						} else {
-							descriptionBox.style.display = 'none';
-						}
-
-						// Enable button only if both selections are made
-						if (selectedType && selectedFrequency) {
-							donateButton.disabled = false;
-							donateButton.classList.remove('disabled');
-
-							const urls = donationUrls[selectedType];
-							let targetUrl;
-
-							switch(selectedFrequency) {
-								case 'once':
-									targetUrl = urls.once;
-									break;
-								case 'monthly':
-									targetUrl = urls.monthly;
-									break;
-								case 'yearly':
-									targetUrl = urls.yearly;
-									break;
-							}
-
-							donateButton.onclick = function() {
-								window.open(targetUrl, '_blank');
-							};
-						} else {
-							donateButton.disabled = true;
-							donateButton.classList.add('disabled');
-						}
-					}
-
-					typeSelect.addEventListener('change', updateDonateButton);
-					frequencySelect.addEventListener('change', updateDonateButton);
-
-					// Initialize button state
-					updateDonateButton();
-				});
-				</script>
-
-				<style>
-				.donation-form {
-					max-width: 600px;
-					margin: 2em auto;
-					padding: 2em;
-					background: #f5f5f5;
-					border-radius: 8px;
-				}
-
-				.form-group {
-					margin-bottom: 1.5em;
-				}
-
-				.form-group label {
-					display: block;
-					margin-bottom: 0.5em;
-					font-weight: bold;
-				}
-
-				.form-group select {
-					width: 100%;
-					padding: 0.5em;
-					border: 1px solid #ddd;
-					border-radius: 4px;
-					font-size: 1em;
-				}
-
-				#donate-button {
-					background: #4CAF50;
-					color: white;
-					padding: 1em 2em;
-					border: none;
-					border-radius: 4px;
-					cursor: pointer;
-					font-size: 1.1em;
-					width: 100%;
-				}
-
-				#donate-button:hover {
-					background: #45a049;
-				}
-
-				#donate-button.disabled {
-					background: #cccccc;
-					cursor: not-allowed;
-				}
-
-				#donate-button.disabled:hover {
-					background: #cccccc;
-				}
-
-				.description-box {
-					background: #ffffff;
-					padding: 1em;
-					margin: 1em 0;
-					border-radius: 4px;
-					border: 1px solid #ddd;
-					line-height: 1.6;
-					display: none;
-				}
-				</style>
+				<script src="<?php echo get_template_directory_uri(); ?>/assets/js/donation.js"></script>
 				</div>
 
 			</article>
