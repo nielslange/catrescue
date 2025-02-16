@@ -1,153 +1,162 @@
 @font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-Thin.ttf);
-	font-weight: 100;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-ThinItalic.ttf);
-	font-weight: 100;
-	font-style: italic;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-ExtraLight.ttf);
-	font-weight: 200;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-ExtraLightItalic.ttf);
-	font-weight: 200;
-	font-style: italic;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-Light.ttf);
-	font-weight: 300;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-LightItalic.ttf);
-	font-weight: 300;
-	font-style: italic;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-Regular.ttf);
+	font-family: "Viga";
+	src: url(./assets/fonts/Viga/Viga-Regular.ttf);
 	font-weight: 400;
 	font-style: normal;
 	font-display: fallback;
 }
 
 @font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-Italic.ttf);
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-Thin.ttf);
+	font-weight: 100;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-ExtraLight.ttf);
+	font-weight: 200;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-Light.ttf);
+	font-weight: 300;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-Regular.ttf);
+	font-weight: 400;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-Medium.ttf);
+	font-weight: 500;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-SemiBold.ttf);
+	font-weight: 600;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-Bold.ttf);
+	font-weight: 700;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-ExtraBold.ttf);
+	font-weight: 800;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-Black.ttf);
+	font-weight: 900;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-ThinItalic.ttf);
+	font-weight: 100;
+	font-style: italic;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-ExtraLightItalic.ttf);
+	font-weight: 200;
+	font-style: italic;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-LightItalic.ttf);
+	font-weight: 300;
+	font-style: italic;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-Italic.ttf);
 	font-weight: 400;
 	font-style: italic;
 	font-display: fallback;
 }
 
 @font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-Medium.ttf);
-	font-weight: 500;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-MediumItalic.ttf);
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-MediumItalic.ttf);
 	font-weight: 500;
 	font-style: italic;
 	font-display: fallback;
 }
 
 @font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-SemiBold.ttf);
-	font-weight: 600;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-SemiBoldItalic.ttf);
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-SemiBoldItalic.ttf);
 	font-weight: 600;
 	font-style: italic;
 	font-display: fallback;
 }
 
 @font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-Bold.ttf);
-	font-weight: 700;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-BoldItalic.ttf);
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-BoldItalic.ttf);
 	font-weight: 700;
 	font-style: italic;
 	font-display: fallback;
 }
 
 @font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-ExtraBold.ttf);
-	font-weight: 800;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-ExtraBoldItalic.ttf);
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-ExtraBoldItalic.ttf);
 	font-weight: 800;
 	font-style: italic;
 	font-display: fallback;
 }
 
 @font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-Black.ttf);
-	font-weight: 900;
-	font-style: normal;
-	font-display: fallback;
-}
-
-@font-face {
-	font-family: "Public Sans";
-	src: url(./assets/fonts/Public_Sans/static/PublicSans-BlackItalic.ttf);
+	font-family: "Montserrat";
+	src: url(./assets/fonts/Montserrat/static/Montserrat-BlackItalic.ttf);
 	font-weight: 900;
 	font-style: italic;
 	font-display: fallback;
 }
 
-$font-sans-primary: "Public Sans", sans-serif;
+$font-headings: "Viga", sans-serif;
+$font-text: "Montserrat", sans-serif;
 
 body {
-	font-family: $font-sans-primary;
+	font-family: $font-text;
+	font-size: 18px;
 	font-size: 1rem;
-	font-weight: 200;
 	line-height: 1.75;
 
 	a {
@@ -173,8 +182,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: $font-sans-primary;
-	font-weight: 200;
+	font-family: $font-headings;
 }
 
 h1 {

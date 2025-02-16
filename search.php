@@ -6,7 +6,7 @@
  */
 
 // Bail out if Polylang is not active.
-class_exists( 'Polylang' ) || die( 'Polylang not found!' );
+class_exists( 'Polylang' ) || exit( 'Polylang not found!' );
 
 get_header();
 ?>

@@ -1,0 +1,207 @@
+<?php
+/**
+ * The template for displaying all pages
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package Catrescue
+ */
+
+get_header();
+?>
+
+<main>
+	<div class="main-inner">
+		<div class="main-content">
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<header class="entry-header">
+					<h1 class="entry-title"><?php the_title(); ?></h1>
+				</header>
+
+				<?php
+
+				// Donation URLs array
+				$donation_urls = array(
+					'Medication'           => array(
+						'price'   => 5,
+						'once'    => 'https://buy.stripe.com/aEU2aw03oeQg9eU14b',
+						'monthly' => 'https://buy.stripe.com/cN25mI2bw23ufDieUV',
+						'yearly'  => 'https://buy.stripe.com/fZe9CY4jE9vWaiYeV3',
+					),
+					'Deworm & Deflea'      => array(
+						'price'   => 10,
+						'once'    => 'https://buy.stripe.com/4gwcPadUe4bC76M9AL',
+						'monthly' => 'https://buy.stripe.com/28o6qMcQa6jK4YEeUW',
+						'yearly'  => 'https://buy.stripe.com/7sIeXi5nIgYo3UA3cm',
+					),
+					'Male Sterilisation'   => array(
+						'price'   => 25,
+						'once'    => 'https://buy.stripe.com/8wM9CYbM6fUkaiY3cg',
+						'monthly' => 'https://buy.stripe.com/6oEcPa7vQ7nO62IfYY',
+						'yearly'  => 'https://buy.stripe.com/dR6dTeeYidMc76M28g',
+					),
+					'Female Sterilisation' => array(
+						'price'   => 50,
+						'once'    => 'https://buy.stripe.com/4gw6qM9DYbE41Ms14h',
+						'monthly' => 'https://buy.stripe.com/28o16sbM67nO76MdQT',
+						'yearly'  => 'https://buy.stripe.com/aEU4iEdUedMc9eUcMY',
+					),
+					'Small TNR (5 Cats)'   => array(
+						'price'   => 150,
+						'once'    => 'https://buy.stripe.com/7sI2aw9DYaA00IodR5',
+						'monthly' => 'https://buy.stripe.com/6oE7uQ4jE6jKbn2aEJ',
+						'yearly'  => 'https://buy.stripe.com/fZedTe5nI8rSeze14i',
+					),
+					'Big TNR (10 Cats)'    => array(
+						'price'   => 300,
+						'once'    => 'https://buy.stripe.com/6oE16s9DYfUkgHm7sJ',
+						'monthly' => 'https://buy.stripe.com/7sI5mI3fAaA09eU9AG',
+						'yearly'  => 'https://buy.stripe.com/dR69CY03o4bC62I00g',
+					),
+				);
+				?>
+
+				<div class="donation-form">
+					<form id="donation-form">
+						<div class="form-group">
+							<label for="donation-type">Type of Donation:</label>
+							<select id="donation-type" name="donation-type">
+								<option value="">Select donation type</option>
+								<?php foreach ( $donation_urls as $type => $details ) : ?>
+									<option value="<?php echo esc_attr( $type ); ?>" data-price="<?php echo esc_attr( $details['price'] ); ?>">
+										<?php echo esc_html( $type ); ?> (USD <?php echo esc_html( $details['price'] ); ?>)
+									</option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="donation-frequency">Frequency:</label>
+							<select id="donation-frequency" name="donation-frequency">
+								<option value="">Select frequency</option>
+								<option value="once">One-time</option>
+								<option value="monthly">Monthly</option>
+								<option value="yearly">Yearly</option>
+							</select>
+						</div>
+
+						<button type="button" id="donate-button" class="button">Donate Now</button>
+					</form>
+				</div>
+
+				<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					const donationUrls = <?php echo json_encode( $donation_urls ); ?>;
+					const donateButton = document.getElementById('donate-button');
+					const typeSelect = document.getElementById('donation-type');
+					const frequencySelect = document.getElementById('donation-frequency');
+
+					// Initially disable the button
+					donateButton.disabled = true;
+					donateButton.classList.add('disabled');
+
+					function updateDonateButton() {
+						const selectedType = typeSelect.value;
+						const selectedFrequency = frequencySelect.value;
+
+						// Enable button only if both selections are made
+						if (selectedType && selectedFrequency) {
+							donateButton.disabled = false;
+							donateButton.classList.remove('disabled');
+
+							const urls = donationUrls[selectedType];
+							let targetUrl;
+
+							switch(selectedFrequency) {
+								case 'once':
+									targetUrl = urls.once;
+									break;
+								case 'monthly':
+									targetUrl = urls.monthly;
+									break;
+								case 'yearly':
+									targetUrl = urls.yearly;
+									break;
+							}
+
+							donateButton.onclick = function() {
+								window.location.href = targetUrl;
+							};
+						} else {
+							donateButton.disabled = true;
+							donateButton.classList.add('disabled');
+						}
+					}
+
+					typeSelect.addEventListener('change', updateDonateButton);
+					frequencySelect.addEventListener('change', updateDonateButton);
+
+					// Initialize button state
+					updateDonateButton();
+				});
+				</script>
+
+				<style>
+				.donation-form {
+					max-width: 600px;
+					margin: 2em auto;
+					padding: 2em;
+					background: #f5f5f5;
+					border-radius: 8px;
+				}
+
+				.form-group {
+					margin-bottom: 1.5em;
+				}
+
+				.form-group label {
+					display: block;
+					margin-bottom: 0.5em;
+					font-weight: bold;
+				}
+
+				.form-group select {
+					width: 100%;
+					padding: 0.5em;
+					border: 1px solid #ddd;
+					border-radius: 4px;
+					font-size: 1em;
+				}
+
+				#donate-button {
+					background: #4CAF50;
+					color: white;
+					padding: 1em 2em;
+					border: none;
+					border-radius: 4px;
+					cursor: pointer;
+					font-size: 1.1em;
+					width: 100%;
+				}
+
+				#donate-button:hover {
+					background: #45a049;
+				}
+
+				#donate-button.disabled {
+					background: #cccccc;
+					cursor: not-allowed;
+				}
+
+				#donate-button.disabled:hover {
+					background: #cccccc;
+				}
+				</style>
+			</article>
+		</div>
+		<div class="main-sidebar">
+			<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+				<aside id="secondary" class="widget-area">
+						<?php dynamic_sidebar( 'sidebar-1' ); ?>
+				</aside>
+			<?php endif; ?>
+		</div>
+	</div>
+</main>
+
+<?php get_footer(); ?>

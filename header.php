@@ -22,35 +22,36 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<header id="site-header">
-		<div class="header-inner">
-			<div class="site-logo">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><strong>CAT</strong>RESCUE.<strong>ID</strong></a>
-			</div>
-			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<nav id="header-menu">
+	<div id="page-container">
+		<header id="site-header">
+			<div class="header-inner">
+				<div class="site-logo">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><strong>CAT</strong>RESCUE.<strong>ID</strong></a>
+				</div>
+				<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
+					<nav id="header-menu">
+						<?php
+						wp_nav_menu(array(
+							'theme_location' => 'header-menu',
+							'menu_id'        => 'header-menu',
+							'container'      => '',
+							'items_wrap'     => '<ul>%3$s</ul>',
+						));
+						?>
+					</nav>
+				<?php endif; ?>
+				<div class="hamburger-menu" id="hamburger-menu" aria-label="Menu"></div>
+				<?php if ( has_nav_menu( 'mobile-menu' ) ) : ?>
+					<nav id="mobile-menu">
 					<?php
-					wp_nav_menu(array(
-						'theme_location' => 'header-menu',
-						'menu_id'        => 'header-menu',
-						'container'      => '',
-						'items_wrap'     => '<ul>%3$s</ul>',
-					));
+						wp_nav_menu(array(
+							'theme_location' => 'mobile-menu',
+							'menu_id'        => 'mobile-menu',
+							'container'      => '',
+							'items_wrap'     => '<ul>%3$s</ul>',
+						));
 					?>
-				</nav>
-			<?php endif; ?>
-			<div class="hamburger-menu" id="hamburger-menu" aria-label="Menu"></div>
-			<?php if ( has_nav_menu( 'mobile-menu' ) ) : ?>
-				<nav id="mobile-menu">
-				<?php
-					wp_nav_menu(array(
-						'theme_location' => 'mobile-menu',
-						'menu_id'        => 'mobile-menu',
-						'container'      => '',
-						'items_wrap'     => '<ul>%3$s</ul>',
-					));
-				?>
-				</nav>
-			<?php endif; ?>
-		</div>
-	</header>
+					</nav>
+				<?php endif; ?>
+			</div>
+		</header>

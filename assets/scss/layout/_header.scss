@@ -1,24 +1,27 @@
-/* Header */
+@use "../base/colors";
+@use "../base/typography";
+
 #site-header {
-	background-color: $primary-background-color;
+	background-color: colors.$background;
+	// box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+	position: relative;
+	width: 100%;
+	z-index: 100;
 
 	.header-inner {
 		align-items: center;
 		display: flex;
 		justify-content: space-between;
 		margin: auto;
-		// max-width: 900px;
+		max-width: 900px;
 		padding: 0 20px;
 		height: 60px;
 
 		.site-logo {
 			margin: 0;
-			padding: 13px;
 
 			a {
 				border: none;
-				font-size: 16px;
-				// font-weight: 700;
 				letter-spacing: 1px;
 				text-transform: uppercase;
 			}
@@ -27,7 +30,7 @@
 		.hamburger-menu {
 			background: url("assets/images/bars-solid.svg") no-repeat center / contain;
 			cursor: pointer;
-			filter: invert(96%) sepia(4%) saturate(1310%) hue-rotate(184deg) brightness(92%) contrast(99%);
+			filter: invert(36%) sepia(11%) saturate(483%) hue-rotate(182deg) brightness(94%) contrast(89%);
 			height: 24px;
 			width: 24px;
 			transition: background-image 0.3s ease-in-out;
@@ -47,7 +50,7 @@
 	}
 
 	#mobile-menu.open {
-		background-color: $nord2;
+		background-color: colors.$background;
 		display: block;
 		left: 0;
 		padding: 20px 0;
@@ -92,6 +95,7 @@
 
 			#header-menu {
 				display: block;
+				z-index: 2;
 
 				ul {
 					display: flex;
@@ -107,7 +111,7 @@
 						a {
 							border: none;
 							display: block;
-							padding: 20px 10px;
+							padding: 20px 0 20px 20px;
 						}
 
 						&.menu-item-has-children {
@@ -115,8 +119,8 @@
 								content: "";
 								display: inline-block;
 								background: url("assets/images/chevron-down-solid.svg") no-repeat;
-								filter: invert(96%) sepia(4%) saturate(1310%) hue-rotate(184deg) brightness(92%)
-									contrast(99%);
+								filter: invert(36%) sepia(11%) saturate(483%) hue-rotate(182deg) brightness(94%)
+									contrast(89%);
 								margin-left: 10px;
 								height: 12px;
 								width: 12px;
@@ -131,21 +135,21 @@
 						}
 
 						ul {
-							background-color: $nord1;
+							background-color: colors.$background;
 							display: none;
 							min-width: 200px;
 							position: absolute;
 							z-index: 1;
-							border: 1px solid $nord0;
+							border: 1px solid colors.$text;
 							border-top: none;
 							border-bottom-left-radius: 5px;
 							border-bottom-right-radius: 5px;
 
 							li {
-								border-bottom: 1px solid $nord4;
+								border-bottom: 1px solid colors.$text;
 
 								&:hover {
-									background-color: $nord3;
+									background-color: colors.$background;
 								}
 
 								&:last-child {
@@ -153,7 +157,7 @@
 								}
 
 								a {
-									color: $nord4;
+									color: colors.$text;
 									display: block;
 									padding: 10px 20px;
 								}

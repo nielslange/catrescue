@@ -1,7 +1,9 @@
-/* Search */
+@use "../base/colors";
+@use "../base/typography";
+
 main#search {
-	background-color: $nord6;
-	color: $nord2;
+	background-color: colors.$background;
+	color: colors.$text;
 
 	.main-inner {
 		flex-direction: column;

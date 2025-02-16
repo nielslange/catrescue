@@ -23,9 +23,6 @@ importers:
       node-sass:
         specifier: 9.0.0
         version: 9.0.0
-      nord:
-        specifier: 0.2.1
-        version: 0.2.1
       normalize.css:
         specifier: ^8.0.1
         version: 8.0.1
@@ -35,6 +32,9 @@ importers:
       prettier:
         specifier: npm:wp-prettier@3.0.3
         version: wp-prettier@3.0.3
+      sass:
+        specifier: 1.78.0
+        version: 1.78.0
       stylelint:
         specifier: 15.11.0
         version: 15.11.0
@@ -1305,6 +1305,9 @@ packages:
     resolution: {integrity: sha512-15gZoQ38eYjEjxkorfbcgBKBL6R7T459OuK+CpcWt7O3KF4uPCx2tD0uFETlUDIyo+1789crbMhTvQBSR5yBMg==}
     engines: {node: '>=0.10.0'}
 
+  immutable@4.3.7:
+    resolution: {integrity: sha512-1hqclzwYwjRDFLjcFxOM5AYkkG0rpFPpr1RLPMEuGczoS7YA8gLhy8SWXYRAA/XwfEHpfo3cw5JGioS32fnMRw==}
+
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -1893,9 +1896,6 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  nord@0.2.1:
-    resolution: {integrity: sha512-/AD7JGJbcp1pB5XwYkJyivqdeXofUP5u2lkif6vLGLc+SsV9OCC0JFNpVwM5pqHuFqbyojRt6xILuidJOwwJDQ==}
-
   normalize-package-data@2.5.0:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
 
@@ -2425,6 +2425,11 @@ packages:
   sass-graph@4.0.1:
     resolution: {integrity: sha512-5YCfmGBmxoIRYHnKK2AKzrAkCoQ8ozO+iumT8K4tXJXRVCPf+7s1/9KxTSW3Rbvf+7Y7b4FR3mWyLnQr3PHocA==}
     engines: {node: '>=12'}
+    hasBin: true
+
+  sass@1.78.0:
+    resolution: {integrity: sha512-AaIqGSrjo5lA2Yg7RvFZrlXDBCp3nV4XP73GrLGvdRWWwk+8H3l0SDvq/5bA4eF+0RFPLuWUk3E+P1U/YqnpsQ==}
+    engines: {node: '>=14.0.0'}
     hasBin: true
 
   scss-tokenizer@0.4.3:
@@ -4542,6 +4547,8 @@ snapshots:
 
   immutable@3.8.2: {}
 
+  immutable@4.3.7: {}
+
   import-fresh@3.3.0:
     dependencies:
       parent-module: 1.0.1
@@ -5159,8 +5166,6 @@ snapshots:
     dependencies:
       abbrev: 1.1.1
 
-  nord@0.2.1: {}
-
   normalize-package-data@2.5.0:
     dependencies:
       hosted-git-info: 2.8.9
@@ -5702,6 +5707,12 @@ snapshots:
       lodash: 4.17.21
       scss-tokenizer: 0.4.3
       yargs: 17.7.2
+
+  sass@1.78.0:
+    dependencies:
+      chokidar: 3.6.0
+      immutable: 4.3.7
+      source-map-js: 1.2.0
 
   scss-tokenizer@0.4.3:
     dependencies:

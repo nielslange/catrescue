@@ -1,16 +1,17 @@
-/* Footer */
+@use "../base/colors";
+@use "../base/typography";
+
 #site-footer {
-	background-color: $primary-background-color;
-	padding: 0;
-	margin: 0;
+	width: 100%;
+	background-color: colors.$background;
+	z-index: 100;
+	height: 60px;
 
 	.footer-inner {
 		margin: auto;
 		max-width: 900px;
 		padding: 20px;
 		font-size: 15px;
-		font-weight: 100;
-		text-align: center;
 
 		.footer-menu {
 			display: inline;
@@ -30,9 +31,15 @@
 		.icon-heart {
 			background: url("assets/images/heart-solid.svg") no-repeat center center;
 			display: inline-block;
-			filter: invert(72%) sepia(0%) saturate(3645%) hue-rotate(315deg) brightness(94%) contrast(97%);
+			filter: invert(19%) sepia(0%) saturate(0%) hue-rotate(153deg) brightness(94%) contrast(92%);
+			fill: #323232;
 			height: 12px;
 			width: 12px;
 		}
 	}
+}
+
+// Add padding to the page container to prevent content from being hidden behind footer
+#page-container {
+	padding-bottom: 60px; // Match footer height
 }

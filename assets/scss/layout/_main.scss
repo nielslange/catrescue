@@ -1,7 +1,10 @@
-/* Footer */
+@use "../base/colors";
+@use "../base/typography";
+
 main {
-	background-color: $nord6;
-	color: $nord2;
+	background-color: colors.$background;
+	color: colors.$text;
+	flex: 1;
 
 	.main-inner {
 		display: flex;
@@ -16,16 +19,15 @@ main {
 		h4,
 		h5,
 		h6 {
-			color: $nord2;
+			color: colors.$text;
 		}
 
 		a {
-			color: $nord10;
+			color: colors.$text;
 		}
 
 		.main-content {
 			flex: 1;
-			margin-bottom: 50px;
 		}
 
 		.main-sidebar {
@@ -40,7 +42,7 @@ main {
 			flex-direction: row;
 
 			.main-sidebar {
-				border-left: 1px solid lighten($nord3, 50%);
+				border-left: 1px solid lighten(colors.$text, 50%);
 				margin-left: 20px;
 				padding-left: 20px;
 				width: 250px;

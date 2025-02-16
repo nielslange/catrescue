@@ -10,44 +10,28 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: catrescue
 */
 
-// -----------------------------------------------------------------------------
-// Utils: Variables, mixins, and functions for general use across the theme
-// -----------------------------------------------------------------------------
-@import "utils/variables";
-@import "utils/mixins";
-@import "utils/functions";
+// Base
+@use "base/base";
+@use "base/breakpoints";
+@use "base/colors";
+@use "base/reset";
+@use "base/spacing";
+@use "base/typography";
 
-// -----------------------------------------------------------------------------
-// Base: Global styles for reset, typography, colors, and other base elements
-// -----------------------------------------------------------------------------
-@import "base/reset";
-@import "base/typography";
-@import "base/colors";
-@import "base/base";
+// Components
+@use "components/buttons";
+@use "components/forms";
+@use "components/navigation";
+@use "components/thumbnail";
 
-// -----------------------------------------------------------------------------
-// Layout: Styles for the main layout components like header and footer
-// -----------------------------------------------------------------------------
-@import "layout/header";
-@import "layout/footer";
-@import "layout/main";
-@import "layout/search";
+// Layout
+@use "layout/footer";
+@use "layout/header";
+@use "layout/main";
+@use "layout/search";
 
-// -----------------------------------------------------------------------------
-// Components: Reusable UI components such as buttons, forms, and navigation
-// -----------------------------------------------------------------------------
-@import "components/buttons";
-@import "components/forms";
-@import "components/navigation";
-@import "components/alerts";
-@import "components/thumbnail";
+// Pages
+@use "pages/home";
 
-// -----------------------------------------------------------------------------
-// Pages: Page-specific styles
-// -----------------------------------------------------------------------------
-@import "pages/home";
-
-// -----------------------------------------------------------------------------
-// Vendors: Third-party libraries and plugins
-// -----------------------------------------------------------------------------
-@import "vendors/ninja-forms";
+// Vendors
+@use "vendors/ninja-forms";
