@@ -25,13 +25,6 @@ class_exists( 'Polylang' ) || exit( 'Polylang not found!' );
 		}
 
 		the_excerpt();
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . pll__( 'Page:' ),
-				'after'  => '</div>',
-			)
-		);
 		?>
 	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->

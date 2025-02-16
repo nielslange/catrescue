@@ -12,6 +12,11 @@ class_exists( 'ACF' ) || exit( 'Advanced Custom Fields plugin is required.' );
 $program_headline = get_field( 'program_headline' );
 $program_teaser   = get_field( 'program_teaser' );
 
+// print( '<pre>' );
+// var_dump( $program_headline );
+// var_dump( $program_teaser );
+// print( '</pre>' );
+
 ?>
 
 <div id="program">
@@ -21,9 +26,10 @@ $program_teaser   = get_field( 'program_teaser' );
 		<?php
 		foreach ( $program_teaser as $teaser ) {
 			printf(
-				'<div><h3>%s</h3>%s</div>',
-				esc_html( $teaser['headline'] ),
-				$teaser['content']
+				'<div><h3><a href="%s">%s</a></h3>%s</div>',
+				esc_url( $teaser['program_teaser_page_link'] ),
+				esc_html( $teaser['program_teaser_headline'] ),
+				wp_kses_post( $teaser['program_teaser_content'] )
 			);
 		}
 		?>

@@ -14,6 +14,9 @@ class_exists( 'Polylang' ) || exit( 'Polylang not found!' );
 		<div class="post-title">
 			<h1 class="entry-title"><?php the_title(); ?></h1>
 		</div>
+		<div class="post-meta">
+			<span class="post-date"><?php the_date(); ?></span> by <span class="post-author"><?php the_author(); ?></span>
+		</div>
 	</header>
 
 	<div class="entry-content">
