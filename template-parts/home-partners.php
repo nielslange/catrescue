@@ -9,25 +9,32 @@
 
 class_exists( 'ACF' ) || exit( 'Advanced Custom Fields plugin is required.' );
 
-$partners = get_field( 'partners_partners' );
-
-if ( ! $partners ) {
-	return;
-}
-
+$partner_headline = get_post_meta( get_the_ID(), 'partner_headline', true );
+$partner_details  = get_post_meta( get_the_ID(), 'partner_details', true );
 
 ?>
 
 <div id="partners">
-	<section class="main-inner">
-		<div class="main-content">
+	<div class="content">
+		<h2><?php print( esc_html( $partner_headline ) ); ?></h2>
+		<div class="teaser">
 		<?php
-		foreach ( $partners as $partner ) {
-			$partner_image = $partner['image'];
-			$partner_url   = $partner['url'];
-			printf( '<a href="%s" target="_blank"><img src="%s"></a>', esc_url( $partner_url ), esc_url( $partner_image ) );
-		}
+		if ( have_rows( 'partner_details' ) ) :
+			while ( have_rows( 'partner_details' ) ) :
+				the_row();
+				$logo = get_sub_field( 'partner_details_logo' );
+				$link = get_sub_field( 'partner_details_link' );
+
+				if ( $logo ) :
+					printf(
+						'<div class="partner-logo"><a href="%s">%s</a></div>',
+						esc_url( $link ),
+						wp_get_attachment_image( $logo['ID'], array( 150, 150 ), false, array( 'loading' => 'lazy' ) )
+					);
+				endif;
+			endwhile;
+		endif;
 		?>
 		</div>
-	</section>
+	</div>
 </div>
