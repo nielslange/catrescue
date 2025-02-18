@@ -7,7 +7,7 @@
  * @package Catrescue
  */
 
-class_exists( 'ACF' ) || exit( 'Advanced Custom Fields plugin is required.' );
+class_exists( 'ACF' ) || exit( 'ACF is required.' );
 
 $banner_image_id = get_post_meta( get_the_ID(), 'banner_image', true );
 $banner_image    = wp_get_attachment_image_src( $banner_image_id, 'full' );

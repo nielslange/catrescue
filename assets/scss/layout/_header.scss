@@ -114,6 +114,14 @@
 							padding: 20px 0 20px 20px;
 						}
 
+						&:hover,
+						&.current-menu-item,
+						&.current-page-ancestor {
+							> a {
+								text-decoration: underline;
+							}
+						}
+
 						&.menu-item-has-children {
 							> a::after {
 								content: "";
@@ -141,15 +149,16 @@
 							position: absolute;
 							z-index: 1;
 							border: 1px solid colors.$text;
-							border-top: none;
-							border-bottom-left-radius: 5px;
-							border-bottom-right-radius: 5px;
+							// border-radius: 5px;
 
 							li {
 								border-bottom: 1px solid colors.$text;
 
-								&:hover {
-									background-color: colors.$background;
+								&:hover,
+								&.current-menu-item {
+									> a {
+										text-decoration: underline;
+									}
 								}
 
 								&:last-child {

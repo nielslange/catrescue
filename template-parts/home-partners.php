@@ -7,7 +7,7 @@
  * @package Catrescue
  */
 
-class_exists( 'ACF' ) || exit( 'Advanced Custom Fields plugin is required.' );
+class_exists( 'ACF' ) || exit( 'ACF is required.' );
 
 $partner_headline = get_post_meta( get_the_ID(), 'partner_headline', true );
 $partner_details  = get_post_meta( get_the_ID(), 'partner_details', true );

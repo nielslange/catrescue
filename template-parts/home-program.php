@@ -7,10 +7,21 @@
  * @package Catrescue
  */
 
-class_exists( 'ACF' ) || exit( 'Advanced Custom Fields plugin is required.' );
+class_exists( 'ACF' ) || exit( 'ACF is required.' );
 
-$program_headline = get_field( 'program_headline' );
-$program_teaser   = get_field( 'program_teaser' );
+$program_headline     = get_post_meta( get_the_ID(), 'program_headline', true );
+$program_teaser_count = get_post_meta( get_the_ID(), 'program_teaser', true );
+$program_teaser       = array();
+
+if ( $program_teaser_count ) {
+	for ( $i = 0; $i < $program_teaser_count; $i++ ) {
+		$program_teaser[] = array(
+			'program_teaser_page_link' => get_post_meta( get_the_ID(), 'program_teaser_' . $i . '_program_teaser_page_link', true ),
+			'program_teaser_headline'  => get_post_meta( get_the_ID(), 'program_teaser_' . $i . '_program_teaser_headline', true ),
+			'program_teaser_content'   => get_post_meta( get_the_ID(), 'program_teaser_' . $i . '_program_teaser_content', true ),
+		);
+	}
+}
 
 // print( '<pre>' );
 // var_dump( $program_headline );

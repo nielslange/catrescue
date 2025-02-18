@@ -45,7 +45,7 @@ function catrescue_theme_setup() {
 
 	register_sidebar( array(
 		'name'          => 'Sidebar',
-		'id'            => 'sidebar-1',
+		'id'            => 'sidebar',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -75,10 +75,10 @@ function catrescue_pll_register_string() {
 		return;
 	}
 
-	pll_register_string( 'catrescue-theme', 'All rights reserved' );
-	pll_register_string( 'catrescue-theme', 'by' );
-	pll_register_string( 'catrescue-theme', 'Developed with' );
-	pll_register_string( 'catrescue-theme', 'Page:' );
-	pll_register_string( 'catrescue-theme', 'Search results for: %s' );
+	pll_register_string( 'catrescue', 'All rights reserved' );
+	pll_register_string( 'catrescue', 'by' );
+	pll_register_string( 'catrescue', 'Developed with' );
+	pll_register_string( 'catrescue', 'Page:' );
+	pll_register_string( 'catrescue', 'Search results for: %s' );
 }
 add_action( 'init', 'catrescue_pll_register_string' );
