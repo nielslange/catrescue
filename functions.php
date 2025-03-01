@@ -18,6 +18,14 @@
 require get_template_directory() . '/inc/disallow-comments.php';
 
 /**
+ * Load theme text domain.
+ */
+function catrescue_load_theme_textdomain() {
+	load_theme_textdomain( 'catrescue', get_template_directory() . '/languages' );
+}
+add_action( 'after_setup_theme', 'catrescue_load_theme_textdomain' );
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function catrescue_theme_setup() {
@@ -38,13 +46,13 @@ function catrescue_theme_setup() {
 
 	// Register menus.
 	register_nav_menus( array(
-		'header-menu' => 'Header Menu',
-		'mobile-menu' => 'Mobile Menu',
-		'footer-menu' => 'Footer Menu',
+		'header-menu' => esc_html__( 'Header Menu', 'catrescue' ),
+		'mobile-menu' => esc_html__( 'Mobile Menu', 'catrescue' ),
+		'footer-menu' => esc_html__( 'Footer Menu', 'catrescue' ),
 	));
 
 	register_sidebar( array(
-		'name'          => 'Sidebar',
+		'name'          => esc_html__( 'Sidebar', 'catrescue' ),
 		'id'            => 'sidebar',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -65,20 +73,3 @@ function catrescue_enqueue_scripts() {
 	wp_enqueue_script( 'catrescue-script', get_template_directory_uri() . '/assets/js/menu.js', null, $version, true );
 }
 add_action( 'wp_enqueue_scripts', 'catrescue_enqueue_scripts' );
-
-/**
- * Register Polylang translation strings.
- */
-function catrescue_pll_register_string() {
-	// Bail out if Polylang is not active.
-	if ( ! function_exists( 'Polylang' ) ) {
-		return;
-	}
-
-	pll_register_string( 'catrescue', 'All rights reserved' );
-	pll_register_string( 'catrescue', 'by' );
-	pll_register_string( 'catrescue', 'Developed with' );
-	pll_register_string( 'catrescue', 'Page:' );
-	pll_register_string( 'catrescue', 'Search results for: %s' );
-}
-add_action( 'init', 'catrescue_pll_register_string' );

@@ -20,7 +20,7 @@ class_exists( 'Polylang' ) || exit( 'Polylang not found!' );
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . pll__( 'Page:' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Page:', 'catrescue' ),
 				'after'  => '</div>',
 			)
 		);

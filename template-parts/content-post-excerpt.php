@@ -17,14 +17,6 @@ class_exists( 'Polylang' ) || exit( 'Polylang not found!' );
 	</header>
 
 	<div class="entry-content">
-		<?php
-		if ( has_post_thumbnail() ) {
-			echo '<div class="post-thumbnail">';
-			the_post_thumbnail( 'thumbnail' );
-			echo '</div>';
-		}
-
-		the_excerpt();
-		?>
+		<?php the_excerpt(); ?>
 	</div><!-- .entry-content -->
 </article><!-- #post-<?php the_ID(); ?> -->

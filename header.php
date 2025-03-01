@@ -40,7 +40,7 @@
 						?>
 					</nav>
 				<?php endif; ?>
-				<div class="hamburger-menu" id="hamburger-menu" aria-label="Menu"></div>
+				<div class="hamburger-menu" id="hamburger-menu" aria-label="<?php esc_attr_e( 'Menu', 'catrescue' ); ?>"></div>
 				<?php if ( has_nav_menu( 'mobile-menu' ) ) : ?>
 					<nav id="mobile-menu">
 					<?php

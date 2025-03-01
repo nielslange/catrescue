@@ -15,11 +15,11 @@
 
 ?>
 
-	<footer id="site-footer">
+<footer id="site-footer">
 		<div class="footer-inner">
 			<div class="footer-copyright">
 				&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?> &bull;
-				<?php pll_e( 'All rights reserved' ); ?> &bull;
+				<?php esc_html_e( 'All rights reserved', 'catrescue' ); ?> &bull;
 				<?php if ( has_nav_menu( 'footer-menu' ) ) : ?>
 					<nav class="footer-menu">
 						<?php
@@ -32,9 +32,9 @@
 						?>
 					</nav>
 				<?php endif; ?>
-				<?php pll_e( 'Developed with' ); ?>
+				<?php esc_html_e( 'Developed with', 'catrescue' ); ?>
 				<acronym title="September 5, 2024 • Jakarta, Indonesia"><span class="icon-heart"></span></acronym>
-				<?php pll_e( 'by' ); ?> <a href="https://nielslange.de" target="_blank" rel="noopener">Niels Lange</a>
+				<?php esc_html_e( 'by', 'catrescue' ); ?> <a href="https://nielslange.de" target="_blank" rel="noopener">Niels Lange</a>
 			</div>
 		</div>
 	</footer>

@@ -9,48 +9,50 @@
 
 class_exists( 'ACF' ) || exit( 'ACF is required.' );
 
+/**
+ * Note: This template uses Advanced Custom Fields (ACF) plugin.
+ * The get_field() function is provided by ACF and may not be recognized by linters,
+ * but it will work correctly when ACF is installed and activated.
+ */
 $blog_headline = get_field( 'blog_headline' );
-$args          = array(
-	'posts_per_page' => 5,
+
+// If no headline is set, use a default
+if ( empty( $blog_headline ) ) {
+	$blog_headline = 'Latest Blog Posts';
+}
+
+$args        = array(
+	'posts_per_page' => 3, // Show only the three most recent posts
 	'orderby'        => 'date',
 	'order'          => 'DESC',
 	'post_type'      => 'post',
 	'post_status'    => 'publish',
 );
-$blog_teaser   = ( new WP_Query( $args ) )->posts;
-setlocale( LC_TIME, 'id_ID.utf8', 'id_ID', 'Indonesian_Indonesia' );
-
-
+$blog_teaser = new WP_Query( $args );
 ?>
 
-<div id="blog">
+<section id="blog">
 	<div class="content">
-		<h2><?php print( esc_html( $blog_headline ) ); ?></h2>
-		<div class="teaser">
-		<?php
-
-		// print( '<pre>' );
-		// print_r( $blog_teaser );
-		// print( '</pre>' );
-
-		foreach ( $blog_teaser as $teaser ) {
-			// Format the posts as follows:
-			// Left hand side: post title
-			// Right hand side: post date
-
-
-			printf(
-				'<blog>
-					<div>%s</div>
-					<div>%s</div>
-					</blog>',
-				esc_html( $teaser->post_title ),
-				date( 'Y-m-d', strtotime( esc_html( $teaser->post_date ) ) ),
-			);
-		}
-		printf( '<p>%s<p>', 'read more posts' );
-		?>
+		<h2><?php echo esc_html( $blog_headline ); ?></h2>
+		<div class="blog-posts">
+			<?php
+			if ( $blog_teaser->have_posts() ) :
+				while ( $blog_teaser->have_posts() ) :
+					$blog_teaser->the_post();
+					?>
+					<article class="blog-post">
+						<?php if ( has_post_thumbnail() ) : ?>
+							<a href="<?php the_permalink(); ?>" class="post-thumbnail">
+								<?php the_post_thumbnail( 'medium' ); ?>
+							</a>
+						<?php endif; ?>
+						<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					</article>
+					<?php
+				endwhile;
+				wp_reset_postdata();
+			endif;
+			?>
 		</div>
-
 	</div>
-</div>
+</section>

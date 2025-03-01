@@ -17,7 +17,7 @@
 			<?php get_search_form(); ?>
 
 		<?php else : ?>
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'catrescue' ); ?></p>
+			<p><?php esc_html_e( 'It seems we cannot find what you are looking for. Perhaps searching can help.', 'catrescue' ); ?></p>
 			<?php get_search_form(); ?>
 		<?php endif; ?>
 	</div>

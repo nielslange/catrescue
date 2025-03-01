@@ -1,0 +1,126 @@
+# Copyright (C) 2025 Niels Lange
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Catrescue 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/catrescue\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-03-01T10:39:50+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: catrescue\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Catrescue"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://github.com/nielslange/catrescue"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "A simple, clean and responsive theme for Catrescue.id."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Niels Lange"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://nielslange.de"
+msgstr ""
+
+#: 404.php:17
+msgid "Oops! That page can't be found."
+msgstr ""
+
+#: 404.php:21
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: footer.php:22
+msgid "All rights reserved"
+msgstr ""
+
+#: footer.php:35
+msgid "Developed with"
+msgstr ""
+
+#: footer.php:37
+msgid "by"
+msgstr ""
+
+#: functions.php:49
+msgid "Header Menu"
+msgstr ""
+
+#: functions.php:50
+msgid "Mobile Menu"
+msgstr ""
+
+#: functions.php:51
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:55
+msgid "Sidebar"
+msgstr ""
+
+#: header.php:43
+msgid "Menu"
+msgstr ""
+
+#: index.php:27
+#: search.php:34
+msgid "« Previous"
+msgstr ""
+
+#: index.php:28
+#: search.php:35
+msgid "Next »"
+msgstr ""
+
+#: index.php:29
+#: search.php:36
+msgid "Post Navigation"
+msgstr ""
+
+#: index.php:30
+#: search.php:37
+msgid "Page"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Full Width"
+msgstr ""
+
+#. translators: %s: search query
+#: search.php:20
+msgid "Search results for: %s"
+msgstr ""
+
+#: template-parts/content-none.php:11
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:16
+msgid "Sorry, but nothing matched your search terms. Please try again with different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:20
+msgid "It seems we cannot find what you are looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/content-page.php:23
+#: template-parts/content-post.php:35
+msgid "Page:"
+msgstr ""
