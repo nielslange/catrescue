@@ -5,9 +5,6 @@
  * @package Catrescue
  */
 
-// Bail out if Polylang is not active.
-class_exists( 'Polylang' ) || exit( 'Polylang not found!' );
-
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -21,7 +18,9 @@ class_exists( 'Polylang' ) || exit( 'Polylang not found!' );
 			</div>
 		<?php endif; ?>
 		<div class="post-meta">
-			<span class="post-date"><?php the_date(); ?></span> by <span class="post-author"><?php the_author(); ?></span>
+			<span class="post-date"><?php the_date(); ?></span>
+			<?php esc_html_e( 'by', 'catrescue' ); ?>
+			<span class="post-author"><?php the_author(); ?></span>
 		</div>
 	</header>
 
@@ -32,7 +31,7 @@ class_exists( 'Polylang' ) || exit( 'Polylang not found!' );
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . __( 'Page:', 'catrescue' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Page:', 'catrescue' ),
 				'after'  => '</div>',
 			)
 		);

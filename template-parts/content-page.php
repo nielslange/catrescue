@@ -5,9 +5,6 @@
  * @package Catrescue
  */
 
-// Bail out if Polylang is not active.
-class_exists( 'Polylang' ) || exit( 'Polylang not found!' );
-
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">

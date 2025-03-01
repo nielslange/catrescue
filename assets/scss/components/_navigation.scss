@@ -1,0 +1,16 @@
+@use "../base/colors";
+
+.navigation {
+	margin: 3em 0 1em;
+
+	.page-numbers {
+		border: 1px solid colors.$text;
+		padding: 0.5em;
+
+		&:hover,
+		&.current {
+			background-color: colors.$text;
+			color: colors.$background;
+		}
+	}
+}
