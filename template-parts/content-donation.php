@@ -4,6 +4,7 @@
  *
  * @package Catrescue
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -16,7 +17,6 @@
 		the_content();
 		?>
 		<?php
-		// Donation URLs array
 		$donation_urls = array(
 			'Medication'           => array(
 				'price'       => 5,

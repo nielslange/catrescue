@@ -19,6 +19,10 @@ h1,
 	margin: 0 0 1em;
 }
 
+.blog .main-content article:first-of-type h2 {
+	margin-top: 0;
+}
+
 p {
 	margin: 1em 0;
 }

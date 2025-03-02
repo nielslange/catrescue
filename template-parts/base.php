@@ -5,22 +5,12 @@
  * @package Catrescue
  */
 
-// Get the content type (post, page, etc.)
+// Get args, if provided.
 $content_type = isset( $args['content_type'] ) ? $args['content_type'] : 'content';
-
-// Get the sidebar visibility
 $show_sidebar = isset( $args['show_sidebar'] ) ? $args['show_sidebar'] : true;
-
-// Get custom class for main element
-$main_class = isset( $args['main_class'] ) ? $args['main_class'] : '';
-
-// Get custom class for inner container
-$inner_class = isset( $args['inner_class'] ) ? $args['inner_class'] : '';
-
-// Check if we should display the title
-$show_title = isset( $args['show_title'] ) ? $args['show_title'] : true;
-
-// Get custom title if provided
+$main_class   = isset( $args['main_class'] ) ? $args['main_class'] : '';
+$inner_class  = isset( $args['inner_class'] ) ? $args['inner_class'] : '';
+$show_title   = isset( $args['show_title'] ) ? $args['show_title'] : true;
 $custom_title = isset( $args['custom_title'] ) ? $args['custom_title'] : '';
 ?>
 
@@ -50,7 +40,7 @@ $custom_title = isset( $args['custom_title'] ) ? $args['custom_title'] : '';
 
 		<?php
 		if ( have_posts() ) {
-			// If this is a search page, start the unordered list
+			// If this is a search page, start the unordered list.
 			if ( is_search() ) {
 				echo '<ul class="search-results-list">';
 			}
@@ -60,22 +50,22 @@ $custom_title = isset( $args['custom_title'] ) ? $args['custom_title'] : '';
 				get_template_part( 'template-parts/' . $content_type );
 
 				// If comments are open or we have at least one comment, load up the comment template.
-				// Only for non-search pages
+				// Only for non-search pages.
 				if ( ! is_search() && ( comments_open() || get_comments_number() ) ) {
 					comments_template();
 				}
 			}
 
-			// If this is a search page, end the unordered list
+			// If this is a search page, end the unordered list.
 			if ( is_search() ) {
 				echo '</ul>';
 			}
 
-			// Display pagination if needed
+			// Display pagination if needed.
 			if ( is_home() || is_archive() || is_search() ) {
 				the_posts_pagination( array(
-					'prev_text'          => esc_html__( '« Previous', 'catrescue' ),
-					'next_text'          => esc_html__( 'Next »', 'catrescue' ),
+					'prev_text'          => esc_html__( '«', 'catrescue' ),
+					'next_text'          => esc_html__( '»', 'catrescue' ),
 					'screen_reader_text' => esc_html__( 'Post Navigation', 'catrescue' ),
 					'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'catrescue' ) . ' </span>',
 					'after_page_number'  => '',
