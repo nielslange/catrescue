@@ -14,7 +14,7 @@ $program_teaser       = array();
 if ( $program_teaser_count ) {
 	for ( $i = 0; $i < $program_teaser_count; $i++ ) {
 		$program_teaser[] = array(
-			'program_teaser_page_link' => get_post_meta( get_the_ID(), 'program_teaser_' . $i . '_program_teaser_page_link', true ),
+			'program_teaser_page_link' => get_permalink( get_post_meta( get_the_ID(), 'program_teaser_' . $i . '_program_teaser_page_link', true ) ),
 			'program_teaser_headline'  => get_post_meta( get_the_ID(), 'program_teaser_' . $i . '_program_teaser_headline', true ),
 			'program_teaser_content'   => get_post_meta( get_the_ID(), 'program_teaser_' . $i . '_program_teaser_content', true ),
 		);
