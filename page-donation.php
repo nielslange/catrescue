@@ -19,6 +19,21 @@ $content       = get_field( 'content' );
 $donations     = get_field( 'donations' );
 $donation_data = array();
 
+/**
+ * Format price based on locale and currency.
+ *
+ * @param float  $price    The price to format.
+ * @param string $currency The currency code (USD or IDR).
+ * @return string          The formatted price.
+ */
+function catrescue_format_price( $price, $currency ) {
+	if ( 'IDR' === $currency ) {
+		return number_format( $price, 0, ',', '.' );
+	}
+
+	return number_format( $price, 2, '.', ',' );
+}
+
 ?>
 
 <main>
@@ -57,7 +72,14 @@ $donation_data = array();
 									<?php if ( ! empty( $donations ) && is_array( $donations ) ) : ?>
 										<?php foreach ( $donations as $donation ) : ?>
 											<option value="<?php echo esc_attr( $donation['name'] ); ?>" data-price="<?php echo esc_attr( $donation['price'] ); ?>">
-												<?php echo esc_html( $donation['name'] ); ?> - <?php echo esc_html( $donation['currency'] ); ?> <?php echo esc_html( $donation['price'] ); ?>
+												<?php
+												printf(
+													'%s - %s %s',
+													esc_html( $donation['name'] ),
+													esc_html( $donation['currency'] ),
+													esc_html( catrescue_format_price( $donation['price'], $donation['currency'] ) )
+												);
+												?>
 											</option>
 										<?php endforeach; ?>
 									<?php endif; ?>

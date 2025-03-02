@@ -72,7 +72,7 @@ function catrescue_enqueue_scripts() {
 	wp_enqueue_style( 'catrescue-style', get_stylesheet_uri(), array(), $version, 'all' );
 	wp_enqueue_script( 'catrescue-script', get_template_directory_uri() . '/assets/js/menu.js', null, $version, true );
 
-	if ( is_page( 'donation' ) ) {
+	if ( is_page( 'donation' ) || is_page( 'donasi' ) ) {
 		wp_enqueue_script( 'catrescue-donation-script', get_template_directory_uri() . '/assets/js/donation.js', null, $version, true );
 	}
 }
