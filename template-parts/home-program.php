@@ -7,19 +7,7 @@
  * @package Catrescue
  */
 
-$program_headline     = get_post_meta( get_the_ID(), 'program_headline', true );
-$program_teaser_count = get_post_meta( get_the_ID(), 'program_teaser', true );
-$program_teaser       = array();
-
-if ( $program_teaser_count ) {
-	for ( $i = 0; $i < $program_teaser_count; $i++ ) {
-		$program_teaser[] = array(
-			'program_teaser_page_link' => get_permalink( get_post_meta( get_the_ID(), 'program_teaser_' . $i . '_program_teaser_page_link', true ) ),
-			'program_teaser_headline'  => get_post_meta( get_the_ID(), 'program_teaser_' . $i . '_program_teaser_headline', true ),
-			'program_teaser_content'   => get_post_meta( get_the_ID(), 'program_teaser_' . $i . '_program_teaser_content', true ),
-		);
-	}
-}
+$program_headline = get_post_meta( get_the_ID(), 'program_headline', true );
 
 ?>
 
@@ -28,14 +16,23 @@ if ( $program_teaser_count ) {
 		<h2><?php print( esc_html( $program_headline ) ); ?></h2>
 		<div class="teaser">
 		<?php
-		foreach ( $program_teaser as $teaser ) {
-			printf(
-				'<div><h3><a href="%s">%s</a></h3>%s</div>',
-				esc_url( $teaser['program_teaser_page_link'] ),
-				esc_html( $teaser['program_teaser_headline'] ),
-				wp_kses_post( $teaser['program_teaser_content'] )
-			);
-		}
+		if ( have_rows( 'program_teaser' ) ) :
+			while ( have_rows( 'program_teaser' ) ) :
+				the_row();
+				$page_link = get_sub_field( 'program_teaser_page_link' );
+				$headline  = get_sub_field( 'program_teaser_headline' );
+				$content   = get_sub_field( 'program_teaser_content' );
+
+				if ( $page_link && $headline && $content ) :
+					printf(
+						'<div><h3><a href="%s">%s</a></h3>%s</div>',
+						esc_url( $page_link ),
+						esc_html( $headline ),
+						wp_kses_post( $content )
+					);
+				endif;
+			endwhile;
+		endif;
 		?>
 		</div>
 	</div>
