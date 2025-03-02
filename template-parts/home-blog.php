@@ -16,13 +16,12 @@ class_exists( 'ACF' ) || exit( 'ACF is required.' );
  */
 $blog_headline = get_field( 'blog_headline' );
 
-// If no headline is set, use a default
 if ( empty( $blog_headline ) ) {
 	$blog_headline = 'Latest Blog Posts';
 }
 
 $args        = array(
-	'posts_per_page' => 3, // Show only the three most recent posts
+	'posts_per_page' => 6,
 	'orderby'        => 'date',
 	'order'          => 'DESC',
 	'post_type'      => 'post',

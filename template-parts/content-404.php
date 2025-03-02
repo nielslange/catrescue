@@ -4,9 +4,11 @@
  *
  * @package Catrescue
  */
+
 ?>
 
 <section class="error-404 not-found">
+
 	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Oops! That page can\'t be found.', 'catrescue' ); ?></h1>
 	</header>
@@ -16,4 +18,5 @@
 
 		<?php get_search_form(); ?>
 	</div>
+
 </section>

@@ -22,8 +22,8 @@ Text Domain: catrescue
 @use "components/buttons";
 @use "components/forms";
 @use "components/navigation";
+@use "components/searchform";
 @use "components/thumbnail";
-@use "components/wp-block-search";
 
 // Layout
 @use "layout/footer";

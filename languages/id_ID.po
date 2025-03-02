@@ -1,0 +1,171 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Catrescue\n"
+"POT-Creation-Date: 2025-03-02 14:22+0700\n"
+"PO-Revision-Date: 2025-03-02 14:23+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
+"X-Poedit-SearchPathExcluded-2: vendor\n"
+
+#: 404.php:17 template-parts/content-404.php:11
+msgid "Oops! That page can't be found."
+msgstr "Ups! Halaman tersebut tidak dapat ditemukan."
+
+#: 404.php:21 template-parts/content-404.php:15
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr "Sepertinya tidak ada yang ditemukan di lokasi ini. Mungkin coba pencarian?"
+
+#: footer.php:22
+msgid "All rights reserved"
+msgstr "Hak cipta dilindungi"
+
+#: footer.php:35
+msgid "Developed with"
+msgstr "Dikembangkan dengan"
+
+#: footer.php:37 template-parts/content-post.php:22
+msgid "by"
+msgstr "oleh"
+
+#: functions.php:49
+msgid "Header Menu"
+msgstr "Menu Header"
+
+#: functions.php:50
+msgid "Mobile Menu"
+msgstr "Menu Mobile"
+
+#: functions.php:51
+msgid "Footer Menu"
+msgstr "Menu Footer"
+
+#: functions.php:55
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: header.php:43
+msgid "Menu"
+msgstr "Menu"
+
+#: page-donation.php:54
+msgid "Package:"
+msgstr "Paket:"
+
+#: page-donation.php:56
+msgid "Select package"
+msgstr "Pilih paket"
+
+#: page-donation.php:70
+msgid "Frequency:"
+msgstr "Frekuensi:"
+
+#: page-donation.php:72
+msgid "Select frequency"
+msgstr "Pilih frekuensi"
+
+#: page-donation.php:73
+msgid "One-time"
+msgstr "Satu kali"
+
+#: page-donation.php:74
+msgid "Monthly"
+msgstr "Bulanan"
+
+#: page-donation.php:75
+msgid "Yearly"
+msgstr "Tahunan"
+
+#: page-donation.php:79
+msgid "Donate now"
+msgstr "Donasi sekarang"
+
+#. translators: %s: search query.
+#: search.php:19 template-parts/base.php:30 template.php:33
+#, php-format
+msgid "Search results for: %s"
+msgstr "Hasil pencarian untuk: %s"
+
+#: template-parts/base.php:67
+msgid "«"
+msgstr "«"
+
+#: template-parts/base.php:68
+msgid "»"
+msgstr "»"
+
+#: template-parts/base.php:69
+msgid "Post Navigation"
+msgstr "Navigasi Artikel"
+
+#: template-parts/base.php:70
+msgid "Page"
+msgstr "Halaman"
+
+#: template-parts/content-none.php:11
+msgid "Nothing Found"
+msgstr "Tidak Ada Hasil"
+
+#: template-parts/content-none.php:16
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+"Maaf, tidak ada yang cocok dengan istilah pencarian Anda. Silakan coba lagi dengan "
+"kata kunci yang berbeda."
+
+#: template-parts/content-none.php:20
+msgid ""
+"It seems we cannot find what you are looking for. Perhaps searching can help."
+msgstr ""
+"Sepertinya kami tidak dapat menemukan apa yang Anda cari. Mungkin pencarian dapat membantu."
+
+#: template-parts/content-page.php:20 template-parts/content-post.php:34
+msgid "Page:"
+msgstr "Halaman:"
+
+#: template-parts/content.php:21
+msgid "Read More"
+msgstr "Baca Selengkapnya"
+
+#. Theme Name of the plugin/theme
+msgid "Catrescue"
+msgstr "Catrescue"
+
+#. Theme URI of the plugin/theme
+msgid "https://github.com/nielslange/catrescue"
+msgstr "https://github.com/nielslange/catrescue"
+
+#. Description of the plugin/theme
+msgid "A simple, clean and responsive theme for Catrescue.id."
+msgstr "Tema yang sederhana, bersih dan responsif untuk Catrescue.id."
+
+#. Author of the plugin/theme
+msgid "Niels Lange"
+msgstr "Niels Lange"
+
+#. Author URI of the plugin/theme
+msgid "https://nielslange.de"
+msgstr "https://nielslange.de"
+
+#. Template Name of the plugin/theme
+msgid "Donation Page"
+msgstr "Halaman Donasi"
+
+#. Template Name of the plugin/theme
+msgid "Full Width"
+msgstr "Lebar Penuh"

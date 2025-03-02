@@ -7,4 +7,5 @@
  * @package Catrescue
  */
 
+// Load the template.
 require get_template_directory() . '/template.php';

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-01T10:39:50+00:00\n"
+"POT-Creation-Date: 2025-03-02T09:18:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: catrescue\n"
@@ -40,72 +40,84 @@ msgid "https://nielslange.de"
 msgstr ""
 
 #: 404.php:17
+#: template-parts/content-404.php:11
 msgid "Oops! That page can't be found."
 msgstr ""
 
 #: 404.php:21
+#: template-parts/content-404.php:15
 msgid "It looks like nothing was found at this location. Maybe try a search?"
-msgstr ""
-
-#: footer.php:22
-msgid "All rights reserved"
-msgstr ""
-
-#: footer.php:35
-msgid "Developed with"
-msgstr ""
-
-#: footer.php:37
-msgid "by"
-msgstr ""
-
-#: functions.php:49
-msgid "Header Menu"
-msgstr ""
-
-#: functions.php:50
-msgid "Mobile Menu"
-msgstr ""
-
-#: functions.php:51
-msgid "Footer Menu"
-msgstr ""
-
-#: functions.php:55
-msgid "Sidebar"
 msgstr ""
 
 #: header.php:43
 msgid "Menu"
 msgstr ""
 
-#: index.php:27
-#: search.php:34
-msgid "« Previous"
+#. Template Name of the theme
+msgid "Donation Page"
 msgstr ""
 
-#: index.php:28
-#: search.php:35
-msgid "Next »"
+#: page-donation.php:54
+msgid "Package:"
 msgstr ""
 
-#: index.php:29
-#: search.php:36
-msgid "Post Navigation"
+#: page-donation.php:56
+msgid "Select package"
 msgstr ""
 
-#: index.php:30
-#: search.php:37
-msgid "Page"
+#: page-donation.php:70
+msgid "Frequency:"
+msgstr ""
+
+#: page-donation.php:72
+msgid "Select frequency"
+msgstr ""
+
+#: page-donation.php:73
+msgid "One-time"
+msgstr ""
+
+#: page-donation.php:74
+msgid "Monthly"
+msgstr ""
+
+#: page-donation.php:75
+msgid "Yearly"
+msgstr ""
+
+#: page-donation.php:79
+msgid "Donate now"
 msgstr ""
 
 #. Template Name of the theme
 msgid "Full Width"
 msgstr ""
 
-#. translators: %s: search query
-#: search.php:20
+#. translators: %s: search query.
+#: search.php:22
+#: template-parts/base.php:30
+#: template.php:33
 msgid "Search results for: %s"
+msgstr ""
+
+#: search.php:40
+#: template-parts/base.php:57
+msgid "«"
+msgstr ""
+
+#: search.php:41
+#: template-parts/base.php:58
+msgid "»"
+msgstr ""
+
+#: search.php:42
+#: template-parts/base.php:59
+msgid "Post Navigation"
+msgstr ""
+
+#: search.php:43
+#: template-parts/base.php:60
+msgid "Page"
 msgstr ""
 
 #: template-parts/content-none.php:11
@@ -120,7 +132,15 @@ msgstr ""
 msgid "It seems we cannot find what you are looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:23
-#: template-parts/content-post.php:35
+#: template-parts/content-page.php:20
+#: template-parts/content-post.php:34
 msgid "Page:"
+msgstr ""
+
+#: template-parts/content-post.php:22
+msgid "by"
+msgstr ""
+
+#: template-parts/content.php:21
+msgid "Read More"
 msgstr ""

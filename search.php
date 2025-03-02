@@ -8,8 +8,11 @@
 get_header();
 ?>
 
-<main id="search">
+<main>
+
 	<div class="main-inner">
+
+		<div class="main-content">
 		<?php if ( have_posts() ) : ?>
 			<header class="page-header">
 				<h1 class="page-title">
@@ -17,26 +20,51 @@ get_header();
 					printf(
 						/* translators: %s: search query. */
 						esc_html__( 'Search results for: %s', 'catrescue' ),
-						'<span><strong>' . get_search_query() . '</strong></span>'
+						'<span class="search-query">' . get_search_query() . '</span>'
 					);
 					?>
-					<?php get_search_form(); ?>
 				</h1>
 			</header>
 
 			<?php
+			echo '<ul class="search-results-list">';
 			while ( have_posts() ) :
 				the_post();
-				get_template_part( 'template-parts/content', 'search' );
+				?>
+				<li class="search-result-item">
+					<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+				</li>
+				<?php
 			endwhile;
+			echo '</ul>';
 
-			the_posts_navigation();
+			// Add pagination for search results.
+			the_posts_pagination( array(
+				'prev_text'          => esc_html__( '«', 'catrescue' ),
+				'next_text'          => esc_html__( '»', 'catrescue' ),
+				'screen_reader_text' => esc_html__( 'Post Navigation', 'catrescue' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'catrescue' ) . ' </span>',
+				'after_page_number'  => '',
+				'mid_size'           => 3,
+				'end_size'           => 2,
+			) );
 
 		else :
-			get_template_part( 'template-parts/content', 'none' );
-		endif;
+				get_template_part( 'template-parts/content', 'none' );
+			endif;
 		?>
+		</div>
+
+		<div class="main-sidebar">
+			<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
+				<aside id="secondary" class="widget-area">
+						<?php dynamic_sidebar( 'sidebar' ); ?>
+				</aside>
+			<?php endif; ?>
+		</div>
+
 	</div>
+
 </main>
 
 <?php get_footer(); ?>

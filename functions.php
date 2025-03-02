@@ -46,13 +46,13 @@ function catrescue_theme_setup() {
 
 	// Register menus.
 	register_nav_menus( array(
-		'header-menu' => esc_html__( 'Header Menu', 'catrescue' ),
-		'mobile-menu' => esc_html__( 'Mobile Menu', 'catrescue' ),
-		'footer-menu' => esc_html__( 'Footer Menu', 'catrescue' ),
+		'header-menu' => 'Header Menu',
+		'mobile-menu' => 'Mobile Menu',
+		'footer-menu' => 'Footer Menu',
 	));
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'catrescue' ),
+		'name'          => 'Sidebar',
 		'id'            => 'sidebar',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -71,5 +71,37 @@ function catrescue_enqueue_scripts() {
 
 	wp_enqueue_style( 'catrescue-style', get_stylesheet_uri(), array(), $version, 'all' );
 	wp_enqueue_script( 'catrescue-script', get_template_directory_uri() . '/assets/js/menu.js', null, $version, true );
+
+	if ( is_page( 'donation' ) ) {
+		wp_enqueue_script( 'catrescue-donation-script', get_template_directory_uri() . '/assets/js/donation.js', null, $version, true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'catrescue_enqueue_scripts' );
+
+/**
+ * Hide Gutenberg editor on page when title is "Donation", but show the editor for other pages.
+ *
+ * @param boolean $use_block_editor Whether to use the block editor.
+ * @param WP_Post $post The post object.
+ * @return boolean
+ */
+function hide_gutenberg_editor_for_donation_page( bool $use_block_editor, WP_Post $post ) {
+	$excluded_pages = array( 'Donation', 'Donasi', 'Home EN', 'Home ID' );
+	if ( in_array( $post->post_title, $excluded_pages, true ) ) {
+		return false;
+	}
+	return $use_block_editor;
+}
+add_filter( 'use_block_editor_for_post', 'hide_gutenberg_editor_for_donation_page', 10, 2 );
+
+/**
+ * Control the number of search results.
+ *
+ * @param WP_Query $query The query object.
+ */
+function show_all_search_results( WP_Query $query ) {
+	if ( $query->is_search() && $query->is_main_query() ) {
+		$query->set( 'posts_per_page', 10 );
+	}
+}
+add_action( 'pre_get_posts', 'show_all_search_results' );

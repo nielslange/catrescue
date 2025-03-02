@@ -1,8 +1,7 @@
 <?php
 /**
- * The template for displaying all pages
- *
  * Template Name: Full Width
+ * Template Post Type: page, post
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

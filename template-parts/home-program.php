@@ -7,8 +7,6 @@
  * @package Catrescue
  */
 
-class_exists( 'ACF' ) || exit( 'ACF is required.' );
-
 $program_headline     = get_post_meta( get_the_ID(), 'program_headline', true );
 $program_teaser_count = get_post_meta( get_the_ID(), 'program_teaser', true );
 $program_teaser       = array();
@@ -22,11 +20,6 @@ if ( $program_teaser_count ) {
 		);
 	}
 }
-
-// print( '<pre>' );
-// var_dump( $program_headline );
-// var_dump( $program_teaser );
-// print( '</pre>' );
 
 ?>
 

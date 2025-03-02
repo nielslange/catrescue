@@ -1,0 +1,30 @@
+@use "../base/colors";
+#searchform {
+	div {
+		display: flex;
+		flex: auto;
+		flex-wrap: nowrap;
+		max-width: 100%;
+
+		input[type="text"] {
+			appearance: none;
+			border: 1px solid #949494;
+			flex-grow: 1;
+			margin-left: 0;
+			margin-right: 0;
+			min-width: 3rem;
+			padding: 8px;
+			text-decoration: unset !important;
+		}
+
+		input[type="submit"] {
+			margin-left: 10px;
+			word-break: normal;
+			cursor: pointer;
+		}
+	}
+}
+
+.search-query {
+	color: colors.$tertiary;
+}

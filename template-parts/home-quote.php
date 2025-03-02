@@ -7,18 +7,10 @@
  * @package Catrescue
  */
 
-class_exists( 'ACF' ) || exit( 'ACF is required.' );
-
 $quote_image_id = get_post_meta( get_the_ID(), 'quote_image', true );
 $quote_image    = wp_get_attachment_image_src( $quote_image_id, 'full' );
 $quote_quote    = get_post_meta( get_the_ID(), 'quote_quote', true );
 $quote_author   = get_post_meta( get_the_ID(), 'quote_author', true );
-
-// print( '<pre>' );
-// print_r( $banner_image );
-// print_r( $banner_headline );
-// print_r( $banner_subline );
-// print( '</pre>' );
 
 ?>
 

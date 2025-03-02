@@ -5,7 +5,6 @@
  * @package Catrescue
  */
 
-// Get args, if provided.
 $content_type = isset( $args['content_type'] ) ? $args['content_type'] : 'content';
 $show_sidebar = isset( $args['show_sidebar'] ) ? $args['show_sidebar'] : true;
 $main_class   = isset( $args['main_class'] ) ? $args['main_class'] : '';
@@ -26,7 +25,7 @@ $custom_title = isset( $args['custom_title'] ) ? $args['custom_title'] : '';
 					echo '<h1 class="page-title">' . esc_html( $custom_title ) . '</h1>';
 				} elseif ( is_search() ) {
 					printf(
-						/* translators: %s: search query */
+						/* translators: %s: search query. */
 						'<h1 class="page-title">' . esc_html__( 'Search results for: %s', 'catrescue' ) . '</h1>',
 						'<span>' . get_search_query() . '</span>'
 					);
@@ -40,29 +39,16 @@ $custom_title = isset( $args['custom_title'] ) ? $args['custom_title'] : '';
 
 		<?php
 		if ( have_posts() ) {
-			// If this is a search page, start the unordered list.
-			if ( is_search() ) {
-				echo '<ul class="search-results-list">';
-			}
-
 			while ( have_posts() ) {
 				the_post();
 				get_template_part( 'template-parts/' . $content_type );
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				// Only for non-search pages.
 				if ( ! is_search() && ( comments_open() || get_comments_number() ) ) {
 					comments_template();
 				}
 			}
 
-			// If this is a search page, end the unordered list.
-			if ( is_search() ) {
-				echo '</ul>';
-			}
-
-			// Display pagination if needed.
-			if ( is_home() || is_archive() || is_search() ) {
+			if ( is_home() || is_archive() ) {
 				the_posts_pagination( array(
 					'prev_text'          => esc_html__( '«', 'catrescue' ),
 					'next_text'          => esc_html__( '»', 'catrescue' ),

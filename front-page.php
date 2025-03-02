@@ -14,19 +14,17 @@ get_header();
  *
  * @param array $sections Array of homepage sections.
  */
-$homepage_sections = apply_filters( 'catrescue_homepage_sections',
-	array(
-		'banner',
-		'program',
-		'location',
-		'blog',
-		'quote',
-		'partners',
-	) );
+$homepage_sections = array(
+	'banner',
+	'program',
+	'location',
+	'blog',
+	'quote',
+	'partners',
+);
 
 echo '<main id="homepage">';
 
-// Load each homepage section
 foreach ( $homepage_sections as $section ) {
 	get_template_part( 'template-parts/home', $section );
 }

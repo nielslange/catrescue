@@ -26,7 +26,7 @@
 		<header id="site-header">
 			<div class="header-inner">
 				<div class="site-logo">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><strong>CAT</strong>RESCUE.<strong>ID</strong></a>
+					<a href="<?php echo function_exists( 'pll_home_url' ) ? esc_url( pll_home_url() ) : esc_url( home_url( '/' ) ); ?>"><strong>CAT</strong>RESCUE.<strong>ID</strong></a>
 				</div>
 				<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
 					<nav id="header-menu">
