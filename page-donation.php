@@ -10,14 +10,28 @@
 
 get_header();
 
-// Bail out if ACF is not installed.
 if ( ! function_exists( 'get_field' ) ) {
-	return;
+	exit( 'ACF is required.' );
 }
 
 $content       = get_field( 'content' );
 $donations     = get_field( 'donations' );
 $donation_data = array();
+
+if ( ! empty( $donations ) && is_array( $donations ) ) {
+	foreach ( $donations as $donation ) {
+		if ( isset( $donation['name'] ) ) {
+			$donation_data[ $donation['name'] ] = array(
+				'price'       => $donation['price'],
+				'description' => $donation['description'],
+				'once'        => $donation['url_once'],
+				'monthly'     => $donation['url_monthly'],
+				'yearly'      => $donation['url_yearly'],
+			);
+		}
+	}
+}
+
 
 /**
  * Format price based on locale and currency.
@@ -27,19 +41,21 @@ $donation_data = array();
  * @return string          The formatted price.
  */
 function catrescue_format_price( $price, $currency ) {
-	if ( 'IDR' === $currency ) {
-		return number_format( $price, 0, ',', '.' );
-	}
-
-	return number_format( $price, 2, '.', ',' );
+	return ( 'IDR' === $currency ) ?
+		number_format( $price, 0, ',', '.' ) :
+		number_format( $price, 2, '.', ',' );
 }
 
 ?>
 
 <main>
+
 	<div class="main-inner">
+
 		<div class="main-content">
+
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
 				<header class="entry-header">
 					<h1 class="entry-title"><?php the_title(); ?></h1>
 				</header>
@@ -47,21 +63,6 @@ function catrescue_format_price( $price, $currency ) {
 				<div class="entry-content">
 
 					<?php echo wp_kses_post( $content ); ?>
-					<?php
-					if ( ! empty( $donations ) && is_array( $donations ) ) {
-						foreach ( $donations as $donation ) {
-							if ( isset( $donation['name'] ) ) {
-								$donation_data[ $donation['name'] ] = array(
-									'price'       => $donation['price'],
-									'description' => $donation['description'],
-									'once'        => $donation['url_once'],
-									'monthly'     => $donation['url_monthly'],
-									'yearly'      => $donation['url_yearly'],
-								);
-							}
-						}
-					}
-					?>
 
 					<div class="donation-form">
 						<form id="donation-form" data-donation-urls='<?php echo esc_attr( wp_json_encode( $donation_data ) ); ?>'>
@@ -106,14 +107,17 @@ function catrescue_format_price( $price, $currency ) {
 
 			</article>
 		</div>
+
 		<div class="main-sidebar">
 			<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
 				<aside id="secondary" class="widget-area">
-						<?php dynamic_sidebar( 'sidebar' ); ?>
+					<?php dynamic_sidebar( 'sidebar' ); ?>
 				</aside>
 			<?php endif; ?>
 		</div>
+
 	</div>
+
 </main>
 
 <?php get_footer(); ?>
