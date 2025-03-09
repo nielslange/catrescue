@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template for displaying all pages
  *
@@ -30,5 +29,4 @@ get_header();
 </main>
 
 <?php
-
 get_footer();

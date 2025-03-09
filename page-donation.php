@@ -49,7 +49,7 @@ function catrescue_get_donation_data(): array {
  * @param string $currency The currency code (USD or IDR).
  * @return string          The formatted price.
  */
-function catrescue_format_price( $price, $currency ) {
+function catrescue_format_price( float $price, string $currency ): string {
 	return ( 'IDR' === $currency )
 		? number_format( $price, 0, ',', '.' )
 		: number_format( $price, 2, '.', ',' );
@@ -121,4 +121,5 @@ $donation_data = catrescue_get_donation_data();
 	</div>
 </main>
 
-<?php get_footer(); ?>
+<?php
+get_footer();

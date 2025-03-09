@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Template Name: Full Width
  * Template Post Type: page, post
@@ -28,5 +27,4 @@ get_header();
 </main>
 
 <?php
-
 get_footer();

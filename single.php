@@ -1,14 +1,13 @@
 <?php
+/**
+ * The template for displaying all single posts
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package Catrescue
+ */
 
-	/**
-	 * The template for displaying all single posts
-	 *
-	 * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
-	 *
-	 * @package Catrescue
-	 */
-
-	get_header();
+get_header();
 ?>
 
 <main>
@@ -28,5 +27,4 @@
 </main>
 
 <?php
-
 get_footer();
