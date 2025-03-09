@@ -14,22 +14,32 @@ if ( ! function_exists( 'get_field' ) ) {
 	exit( 'ACF is required.' );
 }
 
-$content       = get_field( 'content' );
-$donations     = get_field( 'donations' );
-$donation_data = array();
+/**
+ * Get formatted donation data from ACF repeater field.
+ *
+ * @return array Formatted donation data with URLs and details.
+ */
+function catrescue_get_donation_data(): array {
+	$donation_data = array();
 
-if ( ! empty( $donations ) && is_array( $donations ) ) {
-	foreach ( $donations as $donation ) {
-		if ( isset( $donation['name'] ) ) {
-			$donation_data[ $donation['name'] ] = array(
-				'price'       => $donation['price'],
-				'description' => $donation['description'],
-				'once'        => $donation['url_once'],
-				'monthly'     => $donation['url_monthly'],
-				'yearly'      => $donation['url_yearly'],
-			);
+	if ( have_rows( 'donations' ) ) {
+		while ( have_rows( 'donations' ) ) {
+			the_row();
+			$name = get_sub_field( 'name' );
+
+			if ( $name ) {
+				$donation_data[ $name ] = array(
+					'price'       => get_sub_field( 'price' ),
+					'description' => get_sub_field( 'description' ),
+					'once'        => get_sub_field( 'url_once' ),
+					'monthly'     => get_sub_field( 'url_monthly' ),
+					'yearly'      => get_sub_field( 'url_yearly' ),
+				);
+			}
 		}
 	}
+
+	return $donation_data;
 }
 
 /**
@@ -40,10 +50,13 @@ if ( ! empty( $donations ) && is_array( $donations ) ) {
  * @return string          The formatted price.
  */
 function catrescue_format_price( $price, $currency ) {
-	return ( 'IDR' === $currency ) ?
-		number_format( $price, 0, ',', '.' ) :
-		number_format( $price, 2, '.', ',' );
+	return ( 'IDR' === $currency )
+		? number_format( $price, 0, ',', '.' )
+		: number_format( $price, 2, '.', ',' );
 }
+
+$content       = get_field( 'content' );
+$donation_data = catrescue_get_donation_data();
 
 ?>
 
@@ -62,20 +75,28 @@ function catrescue_format_price( $price, $currency ) {
 								<label for="donation-type"><?php esc_html_e( 'Package:', 'catrescue' ); ?></label>
 								<select id="donation-type" name="donation-type">
 									<option value=""><?php esc_html_e( 'Select package', 'catrescue' ); ?></option>
-									<?php if ( ! empty( $donations ) && is_array( $donations ) ) : ?>
-										<?php foreach ( $donations as $donation ) : ?>
-											<option value="<?php echo esc_attr( $donation['name'] ); ?>" data-price="<?php echo esc_attr( $donation['price'] ); ?>">
+									<?php
+									if ( have_rows( 'donations' ) ) :
+										while ( have_rows( 'donations' ) ) :
+											the_row();
+											$name     = get_sub_field( 'name' );
+											$price    = get_sub_field( 'price' );
+											$currency = get_sub_field( 'currency' );
+											?>
+											<option value="<?php echo esc_attr( $name ); ?>" data-price="<?php echo esc_attr( $price ); ?>">
 												<?php
 												printf(
 													'%s - %s %s',
-													esc_html( $donation['name'] ),
-													esc_html( $donation['currency'] ),
-													esc_html( catrescue_format_price( $donation['price'], $donation['currency'] ) )
+													esc_html( $name ),
+													esc_html( $currency ),
+													esc_html( catrescue_format_price( $price, $currency ) )
 												);
 												?>
 											</option>
-										<?php endforeach; ?>
-									<?php endif; ?>
+											<?php
+										endwhile;
+									endif;
+									?>
 								</select>
 							</div>
 							<div id="donation-description" class="description-box"></div>
