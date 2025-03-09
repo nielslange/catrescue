@@ -38,7 +38,6 @@ get_header();
 			endwhile;
 			echo '</ul>';
 
-			// Add pagination for search results.
 			the_posts_pagination( array(
 				'prev_text'          => esc_html__( '«', 'catrescue' ),
 				'next_text'          => esc_html__( '»', 'catrescue' ),
