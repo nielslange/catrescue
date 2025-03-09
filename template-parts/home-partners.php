@@ -7,8 +7,12 @@
  * @package Catrescue
  */
 
-$partner_headline = get_post_meta( get_the_ID(), 'partner_headline', true );
-$partner_details  = get_post_meta( get_the_ID(), 'partner_details', true );
+if ( ! function_exists( 'get_field' ) ) {
+	exit( 'ACF is required.' );
+}
+
+$partner_headline = get_field( 'partner_headline' );
+$partner_details  = get_field( 'partner_details' );
 
 ?>
 
@@ -23,13 +27,11 @@ $partner_details  = get_post_meta( get_the_ID(), 'partner_details', true );
 				$logo = get_sub_field( 'partner_details_logo' );
 				$url  = get_sub_field( 'partner_details_link' );
 
-				if ( $logo ) :
-					printf(
-						'<div class="partner-logo"><a href="%s">%s</a></div>',
-						esc_url( $url ),
-						wp_get_attachment_image( $logo['ID'], array( 150, 150 ), false, array( 'loading' => 'lazy' ) )
-					);
-				endif;
+				printf(
+					'<div class="partner-logo"><a href="%s" target="_blank">%s</a></div>',
+					esc_url( $url ),
+					wp_get_attachment_image( $logo['ID'], array( 150, 150 ), false, array( 'loading' => 'lazy' ) )
+				);
 			endwhile;
 		endif;
 		?>
