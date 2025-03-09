@@ -66,13 +66,7 @@ $custom_title = isset( $args['custom_title'] ) ? $args['custom_title'] : '';
 		</div>
 
 		<?php if ( $show_sidebar ) : ?>
-		<div class="main-sidebar">
-			<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
-				<aside id="secondary" class="widget-area">
-					<?php dynamic_sidebar( 'sidebar' ); ?>
-				</aside>
-			<?php endif; ?>
-		</div>
+			<?php get_sidebar(); ?>
 		<?php endif; ?>
 	</div>
 </main>

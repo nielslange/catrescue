@@ -11,7 +11,9 @@ get_header();
 ?>
 
 <main>
+
 	<div class="main-inner">
+
 		<div class="main-content">
 		<?php
 		while ( have_posts() ) :
@@ -25,14 +27,11 @@ get_header();
 		endwhile;
 		?>
 		</div>
-		<div class="main-sidebar">
-			<?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
-				<aside id="secondary" class="widget-area">
-						<?php dynamic_sidebar( 'sidebar' ); ?>
-				</aside>
-			<?php endif; ?>
-		</div>
+
+		<?php get_sidebar(); ?>
+
 	</div>
+
 </main>
 
 <?php get_footer(); ?>
