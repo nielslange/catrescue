@@ -7,27 +7,19 @@
  * @package Catrescue
  */
 
-class_exists( 'ACF' ) || exit( 'ACF is required.' );
-
-/**
- * Note: This template uses Advanced Custom Fields (ACF) plugin.
- * The get_field() function is provided by ACF and may not be recognized by linters,
- * but it will work correctly when ACF is installed and activated.
- */
-$blog_headline = get_field( 'blog_headline' );
-
-if ( empty( $blog_headline ) ) {
-	$blog_headline = 'Latest Blog Posts';
+if ( ! function_exists( 'get_field' ) ) {
+	exit( 'ACF is required.' );
 }
 
-$args        = array(
+$blog_headline = get_field( 'blog_headline' );
+$args          = array(
 	'posts_per_page' => 6,
 	'orderby'        => 'date',
 	'order'          => 'DESC',
 	'post_type'      => 'post',
 	'post_status'    => 'publish',
 );
-$blog_teaser = new WP_Query( $args );
+$blog_teaser   = new WP_Query( $args );
 ?>
 
 <section id="blog">
