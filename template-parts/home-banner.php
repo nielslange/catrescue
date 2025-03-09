@@ -7,14 +7,17 @@
  * @package Catrescue
  */
 
-$banner_image_id = get_post_meta( get_the_ID(), 'banner_image', true );
-$banner_image    = wp_get_attachment_image_src( $banner_image_id, 'full' );
-$banner_headline = get_post_meta( get_the_ID(), 'banner_headline', true );
-$banner_subline  = get_post_meta( get_the_ID(), 'banner_subline', true );
+if ( ! function_exists( 'get_field' ) ) {
+	exit( 'ACF is required.' );
+}
+
+$banner_image    = get_field( 'banner_image' );
+$banner_headline = get_field( 'banner_headline' );
+$banner_subline  = get_field( 'banner_subline' );
 
 ?>
 
-<div id="banner" class="hero" style="background-image: url(<?php print( esc_html( $banner_image[0] ) ); ?>)">
+<div id="banner" class="hero" style="background-image: url(<?php print( esc_html( $banner_image['url'] ) ); ?>)">
 	<div class="overlay"></div>
 	<div class="content">
 		<h1><?php echo esc_html( $banner_headline ); ?></h1>
