@@ -10,20 +10,12 @@
 
 	<header class="entry-header">
 		<div class="post-title">
-			<h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+			<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		</div>
 	</header>
 
 	<div class="entry-content">
-		<?php
-		if ( has_post_thumbnail() ) {
-			echo '<div class="post-thumbnail">';
-			the_post_thumbnail( 'thumbnail' );
-			echo '</div>';
-		}
-
-		the_excerpt();
-		?>
+		<?php the_excerpt(); ?>
 	</div>
 
 </article>

@@ -18,9 +18,8 @@ get_header();
 		<div class="main-content">
 
 			<header class="page-header">
-				<?php
-				echo '<h1 class="page-title">' . get_the_title( get_option( 'page_for_posts' ) ) . '</h1>';
-				?>
+				<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+				<?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
 			</header>
 
 			<article>
@@ -28,7 +27,7 @@ get_header();
 			if ( have_posts() ) {
 				while ( have_posts() ) {
 					the_post();
-					get_template_part( 'template-parts/archive' );
+					get_template_part( 'template-parts/content', 'post-archive' );
 				}
 
 				get_template_part( 'template-parts/pagination' );
@@ -38,11 +37,11 @@ get_header();
 			}
 			?>
 			</article>
-
 		</div>
 
 		<aside>
-		<?php get_sidebar(); ?>
+			<?php get_sidebar(); ?>
+		</aside>
 
 	</div>
 

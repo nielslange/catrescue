@@ -108,7 +108,9 @@ function catrescue_format_price( $price, $currency ) {
 			</article>
 		</div>
 
-		<?php get_sidebar(); ?>
+		<aside>
+			<?php get_sidebar(); ?>
+		</aside>
 
 	</div>
 

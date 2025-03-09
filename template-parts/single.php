@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying single post content
  *
@@ -10,7 +11,7 @@
 
 	<header class="entry-header">
 		<div class="post-title">
-			<h1 class="entry-title"><?php the_title(); ?></h1>
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</div>
 
 		<div class="post-meta">
@@ -31,12 +32,10 @@
 		<?php
 		the_content();
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Page:', 'catrescue' ),
-				'after'  => '</div>',
-			)
-		);
+		if ( comments_open() || get_comments_number() ) :
+			comments_template();
+		endif;
+
 		?>
 	</div>
 

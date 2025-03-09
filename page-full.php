@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Full Width
  * Template Post Type: page, post
@@ -13,20 +14,26 @@ get_header();
 
 <main>
 	<div class="main-inner">
+
 		<div class="main-content">
-		<?php
-		while ( have_posts() ) :
-			the_post();
-			get_template_part( 'template-parts/content', 'page' );
 
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		endwhile;
-		?>
+				<header class="entry-header">
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				</header>
+
+				<div class="entry-content">
+					<?php the_content(); ?>
+				</div>
+
+			</article>
+
 		</div>
+
 	</div>
 </main>
 
-<?php get_footer(); ?>
+<?php
+
+get_footer();
