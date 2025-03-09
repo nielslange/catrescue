@@ -9,25 +9,25 @@
 
 get_header();
 
-/**
- * Filter the homepage sections.
- *
- * @param array $sections Array of homepage sections.
- */
-$homepage_sections = array(
-	'banner',
-	'program',
-	'location',
-	'blog',
-	'quote',
-	'partners',
-);
-
 echo '<main id="homepage">';
 
-foreach ( $homepage_sections as $section ) {
-	get_template_part( 'template-parts/home', $section );
-}
+// Display the homepage banner section.
+get_template_part( 'template-parts/home', 'banner' );
+
+// Display the homepage program section.
+get_template_part( 'template-parts/home', 'program' );
+
+// Display the homepage location section.
+get_template_part( 'template-parts/home', 'location' );
+
+// Display the homepage blog section.
+get_template_part( 'template-parts/home', 'blog' );
+
+// Display the homepage quote section.
+get_template_part( 'template-parts/home', 'quote' );
+
+// Display the homepage partners section.
+get_template_part( 'template-parts/home', 'partners' );
 
 echo '</main>';
 
