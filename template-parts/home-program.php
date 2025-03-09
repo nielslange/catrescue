@@ -7,7 +7,11 @@
  * @package Catrescue
  */
 
-$program_headline = get_post_meta( get_the_ID(), 'program_headline', true );
+if ( ! function_exists( 'get_field' ) ) {
+	exit( 'ACF is required.' );
+}
+
+$program_headline = get_field( 'program_headline' );
 
 ?>
 
@@ -23,14 +27,12 @@ $program_headline = get_post_meta( get_the_ID(), 'program_headline', true );
 				$headline  = get_sub_field( 'program_teaser_headline' );
 				$content   = get_sub_field( 'program_teaser_content' );
 
-				if ( $page_link && $headline && $content ) :
-					printf(
-						'<div><h3><a href="%s">%s</a></h3>%s</div>',
-						esc_url( $page_link ),
-						esc_html( $headline ),
-						wp_kses_post( $content )
-					);
-				endif;
+				printf(
+					'<div><h3><a href="%s">%s</a></h3>%s</div>',
+					esc_url( $page_link ),
+					esc_html( $headline ),
+					wp_kses_post( $content )
+				);
 			endwhile;
 		endif;
 		?>
