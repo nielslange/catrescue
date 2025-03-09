@@ -32,7 +32,6 @@ if ( ! empty( $donations ) && is_array( $donations ) ) {
 	}
 }
 
-
 /**
  * Format price based on locale and currency.
  *
@@ -49,21 +48,14 @@ function catrescue_format_price( $price, $currency ) {
 ?>
 
 <main>
-
 	<div class="main-inner">
-
 		<div class="main-content">
-
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
 				<header class="entry-header">
 					<h1 class="entry-title"><?php the_title(); ?></h1>
 				</header>
-
 				<div class="entry-content">
-
 					<?php echo wp_kses_post( $content ); ?>
-
 					<div class="donation-form">
 						<form id="donation-form" data-donation-urls='<?php echo esc_attr( wp_json_encode( $donation_data ) ); ?>'>
 							<div class="form-group">
@@ -86,9 +78,7 @@ function catrescue_format_price( $price, $currency ) {
 									<?php endif; ?>
 								</select>
 							</div>
-
 							<div id="donation-description" class="description-box"></div>
-
 							<div class="form-group">
 								<label for="donation-frequency"><?php esc_html_e( 'Frequency:', 'catrescue' ); ?></label>
 								<select id="donation-frequency" name="donation-frequency">
@@ -98,22 +88,16 @@ function catrescue_format_price( $price, $currency ) {
 									<option value="yearly"><?php esc_html_e( 'Yearly', 'catrescue' ); ?></option>
 								</select>
 							</div>
-
 							<button type="button" id="donate-button" class="button"><?php esc_html_e( 'Donate now', 'catrescue' ); ?></button>
 						</form>
 					</div>
-
 				</div>
-
 			</article>
 		</div>
-
 		<aside>
 			<?php get_sidebar(); ?>
 		</aside>
-
 	</div>
-
 </main>
 
 <?php get_footer(); ?>

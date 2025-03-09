@@ -9,11 +9,9 @@ get_header();
 ?>
 
 <main>
-
 	<div class="main-inner">
-
 		<div class="main-content">
-		<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) { ?>
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php
@@ -25,33 +23,27 @@ get_header();
 					?>
 				</h1>
 			</header>
-
 			<?php
 			echo '<ul class="search-results-list">';
-			while ( have_posts() ) :
+			while ( have_posts() ) {
 				the_post();
 				?>
 				<li class="search-result-item">
 					<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 				</li>
 				<?php
-			endwhile;
+			}
 			echo '</ul>';
-
 			get_template_part( 'template-parts/pagination' );
-
-		else :
-				get_template_part( 'template-parts/content', 'none' );
-			endif;
+		} else {
+			get_template_part( 'template-parts/content', 'none' );
+		}
 		?>
 		</div>
-
 		<aside>
 			<?php get_sidebar(); ?>
 		</aside>
-
 	</div>
-
 </main>
 
 <?php get_footer(); ?>

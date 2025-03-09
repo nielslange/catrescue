@@ -12,24 +12,19 @@
 ?>
 
 <main>
-
 	<div class="main-inner">
-
 		<div class="main-content">
 			<?php
-			while ( have_posts() ) :
+			while ( have_posts() ) {
 				the_post();
 				get_template_part( 'template-parts/single' );
-			endwhile;
+			}
 			?>
 		</div>
-
 		<aside>
 			<?php get_sidebar(); ?>
 		</aside>
-
 	</div>
-
 </main>
 
 <?php
