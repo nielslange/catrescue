@@ -7,14 +7,17 @@
  * @package Catrescue
  */
 
-$quote_image_id = get_post_meta( get_the_ID(), 'quote_image', true );
-$quote_image    = wp_get_attachment_image_src( $quote_image_id, 'full' );
-$quote_quote    = get_post_meta( get_the_ID(), 'quote_quote', true );
-$quote_author   = get_post_meta( get_the_ID(), 'quote_author', true );
+if ( ! function_exists( 'get_field' ) ) {
+	exit( 'ACF is required.' );
+}
+
+$quote_image  = get_field( 'quote_image' );
+$quote_quote  = get_field( 'quote_quote' );
+$quote_author = get_field( 'quote_author' );
 
 ?>
 
-<div id="banner" class="hero" style="background-image: url(<?php print( esc_html( $quote_image[0] ) ); ?>)">
+<div id="banner" class="hero" style="background-image: url(<?php print( esc_html( $quote_image['url'] ) ); ?>)">
 	<div class="overlay"></div>
 	<div class="content">
 		<h1><?php echo esc_html( $quote_quote ); ?></h1>
