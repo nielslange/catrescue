@@ -14,7 +14,7 @@
 
 // Include helper files.
 require get_template_directory() . '/inc/disallow-comments.php';
-
+require get_template_directory() . '/inc/class-adoptable-cats.php';
 /**
  * Load theme text domain.
  *
@@ -53,6 +53,20 @@ function catrescue_theme_setup(): void {
 add_action( 'after_setup_theme', 'catrescue_theme_setup' );
 
 /**
+ * Modifies the archive title for custom post type archives.
+ *
+ * @param string $title The archive title.
+ * @return string Modified archive title.
+ */
+function catrescue_modify_archive_title( string $title ): string {
+	if ( is_post_type_archive() ) {
+		$title = post_type_archive_title( '', false );
+	}
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'catrescue_modify_archive_title' );
+
+/**
  * Enqueues styles and scripts for the theme.
  *
  * @return void
@@ -71,7 +85,7 @@ function catrescue_enqueue_scripts(): void {
 add_action( 'wp_enqueue_scripts', 'catrescue_enqueue_scripts' );
 
 /**
- * Hide Gutenberg editor on page when title is "Donation", but show the editor for other pages.
+ * Hide Gutenberg editor on certain pages and CPTs.
  *
  * @param bool    $use_block_editor Whether to use the block editor.
  * @param WP_Post $post The post object.
@@ -79,7 +93,8 @@ add_action( 'wp_enqueue_scripts', 'catrescue_enqueue_scripts' );
  */
 function hide_gutenberg_editor_for_donation_page( bool $use_block_editor, WP_Post $post ): bool {
 	$excluded_pages = array( 'Donation', 'Donasi', 'Home EN', 'Home ID' );
-	if ( in_array( $post->post_title, $excluded_pages, true ) ) {
+	$excluded_cpts  = array( 'cats' );
+	if ( in_array( $post->post_title, $excluded_pages, true ) || in_array( $post->post_type, $excluded_cpts, true ) ) {
 		return false;
 	}
 	return $use_block_editor;
@@ -98,3 +113,26 @@ function show_all_search_results( WP_Query $query ): void {
 	}
 }
 add_action( 'pre_get_posts', 'show_all_search_results' );
+
+/**
+ * Control the number of cats displayed per page on the archive page.
+ *
+ * @param WP_Query $query The query object.
+ * @return void
+ */
+function catrescue_modify_cats_per_page( WP_Query $query ): void {
+	if ( ! is_admin() && $query->is_post_type_archive( 'cats' ) && $query->is_main_query() ) {
+		$query->set( 'posts_per_page', 12 );
+		$query->set( 'post_status', array( 'publish' ) );
+
+		// Add meta query for adoptable cats
+		$query->set( 'meta_query', array(
+			array(
+				'key'     => 'adoptable',
+				'value'   => '1',
+				'compare' => '=',
+			),
+		) );
+	}
+}
+add_action( 'pre_get_posts', 'catrescue_modify_cats_per_page' );

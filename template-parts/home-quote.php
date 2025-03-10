@@ -14,7 +14,6 @@ if ( ! function_exists( 'get_field' ) ) {
 $quote_image  = get_field( 'quote_image' );
 $quote_quote  = get_field( 'quote_quote' );
 $quote_author = get_field( 'quote_author' );
-
 ?>
 
 <div id="banner" class="hero" style="background-image: url(<?php print( esc_html( $quote_image['url'] ) ); ?>)">

@@ -1,0 +1,42 @@
+@use "../base/breakpoints";
+@use "../base/colors";
+
+.post-type-archive-cats {
+	.main-content {
+		article {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1rem;
+			margin: 0 auto;
+			padding: 0 1rem;
+			max-width: 480px;
+
+			@media (min-width: breakpoints.$breakpoint-lg) {
+				grid-template-columns: repeat(4, 1fr);
+				max-width: 648px;
+			}
+
+			a {
+				display: block;
+				background-color: colors.$primary;
+				border-bottom: none;
+				text-align: center;
+				max-width: 150px;
+				justify-self: center;
+				width: 100%;
+
+				img {
+					width: 100%;
+					height: auto;
+					display: block;
+				}
+
+				h2 {
+					margin: 0;
+					padding: 0.5rem;
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
+}

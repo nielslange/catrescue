@@ -13,7 +13,6 @@ if ( ! function_exists( 'get_field' ) ) {
 
 $partner_headline = get_field( 'partner_headline' );
 $partner_details  = get_field( 'partner_details' );
-
 ?>
 
 <div id="partners">

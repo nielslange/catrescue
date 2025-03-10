@@ -14,7 +14,6 @@ if ( ! function_exists( 'get_field' ) ) {
 $banner_image    = get_field( 'banner_image' );
 $banner_headline = get_field( 'banner_headline' );
 $banner_subline  = get_field( 'banner_subline' );
-
 ?>
 
 <div id="banner" class="hero" style="background-image: url(<?php print( esc_html( $banner_image['url'] ) ); ?>)">

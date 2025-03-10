@@ -12,7 +12,6 @@ if ( ! function_exists( 'get_field' ) ) {
 }
 
 $program_headline = get_field( 'program_headline' );
-
 ?>
 
 <div id="program">

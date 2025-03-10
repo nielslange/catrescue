@@ -14,7 +14,6 @@ if ( ! function_exists( 'get_field' ) ) {
 $location_image        = get_field( 'location_image' );
 $location_headline     = get_field( 'location_headline' );
 $location_teaser_count = get_field( 'location_teaser' );
-
 ?>
 
 <div id="location" class="hero" style="background-image: url(<?php print( esc_html( $location_image['url'] ) ); ?>)">

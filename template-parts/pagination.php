@@ -15,6 +15,6 @@ the_posts_pagination( array(
 	'screen_reader_text' => esc_html__( 'Post Navigation', 'catrescue' ),
 	'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'catrescue' ) . ' </span>',
 	'after_page_number'  => '',
-	'mid_size'           => 3,
-	'end_size'           => 2,
+	'mid_size'           => 1,
+	'end_size'           => 1,
 ) );
