@@ -20,7 +20,7 @@ if ( ! function_exists( 'get_field' ) ) {
  * @return array Formatted donation data with URLs and details.
  */
 function catrescue_get_donation_data(): array {
-	$donation_data = array();
+	$donation_data = [];
 
 	if ( have_rows( 'donations' ) ) {
 		while ( have_rows( 'donations' ) ) {
@@ -28,13 +28,13 @@ function catrescue_get_donation_data(): array {
 			$name = get_sub_field( 'name' );
 
 			if ( $name ) {
-				$donation_data[ $name ] = array(
+				$donation_data[ $name ] = [
 					'price'       => get_sub_field( 'price' ),
 					'description' => get_sub_field( 'description' ),
 					'once'        => get_sub_field( 'url_once' ),
 					'monthly'     => get_sub_field( 'url_monthly' ),
 					'yearly'      => get_sub_field( 'url_yearly' ),
-				);
+				];
 			}
 		}
 	}

@@ -20,9 +20,6 @@ get_header();
 			}
 			?>
 		</div>
-		<aside>
-			<?php get_sidebar(); ?>
-		</aside>
 	</div>
 </main>
 

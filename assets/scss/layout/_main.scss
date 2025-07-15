@@ -2,9 +2,10 @@
 @use "../base/typography";
 
 main {
-	background-color: colors.$background;
+	background-color: colors.$background-secondary;
 	color: colors.$text;
 	flex: 1;
+	margin-top: 60px;
 
 	.main-inner {
 		display: flex;

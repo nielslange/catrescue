@@ -3,6 +3,9 @@
  * Disallow comments
  *
  * @package Catrescue
+ * @since 1.0
+ * @author Niels Lange
+ * @license GPL v2 or later
  */
 
 /**

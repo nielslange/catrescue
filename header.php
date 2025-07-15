@@ -31,12 +31,14 @@
 				<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
 					<nav id="header-menu">
 						<?php
-						wp_nav_menu(array(
-							'theme_location' => 'header-menu',
-							'menu_id'        => 'header-menu',
-							'container'      => '',
-							'items_wrap'     => '<ul>%3$s</ul>',
-						));
+						wp_nav_menu(
+							[
+								'theme_location' => 'header-menu',
+								'menu_id'        => 'header-menu',
+								'container'      => '',
+								'items_wrap'     => '<ul>%3$s</ul>',
+							]
+						);
 						?>
 					</nav>
 				<?php endif; ?>
@@ -44,12 +46,14 @@
 				<?php if ( has_nav_menu( 'mobile-menu' ) ) : ?>
 					<nav id="mobile-menu">
 					<?php
-						wp_nav_menu(array(
-							'theme_location' => 'mobile-menu',
-							'menu_id'        => 'mobile-menu',
-							'container'      => '',
-							'items_wrap'     => '<ul>%3$s</ul>',
-						));
+						wp_nav_menu(
+							[
+								'theme_location' => 'mobile-menu',
+								'menu_id'        => 'mobile-menu',
+								'container'      => '',
+								'items_wrap'     => '<ul>%3$s</ul>',
+							]
+						);
 					?>
 					</nav>
 				<?php endif; ?>

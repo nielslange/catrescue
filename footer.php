@@ -23,12 +23,14 @@
 				<?php if ( has_nav_menu( 'footer-menu' ) ) : ?>
 					<nav class="footer-menu">
 						<?php
-						wp_nav_menu(array(
-							'theme_location' => 'footer-menu',
-							'menu_id'        => 'footer-menu',
-							'container'      => 'span',
-							'items_wrap'     => '<ul class="footer-menu">%3$s</ul>',
-						));
+						wp_nav_menu(
+							[
+								'theme_location' => 'footer-menu',
+								'menu_id'        => 'footer-menu',
+								'container'      => 'span',
+								'items_wrap'     => '<ul class="footer-menu">%3$s</ul>',
+							]
+						);
 						?>
 					</nav>
 				<?php endif; ?>

@@ -29,7 +29,7 @@ $partner_details  = get_field( 'partner_details' );
 				printf(
 					'<div class="partner-logo"><a href="%s" target="_blank">%s</a></div>',
 					esc_url( $url ),
-					wp_get_attachment_image( $logo['ID'], array( 150, 150 ), false, array( 'loading' => 'lazy' ) )
+					wp_get_attachment_image( $logo['ID'], [ 150, 150 ], false, [ 'loading' => 'lazy' ] )
 				);
 			endwhile;
 		endif;

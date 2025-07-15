@@ -10,7 +10,9 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: catrescue
 */
 
-// Base
+// -----------------------------------------------------------------------------
+// Base: Global styles for reset, typography, and other base elements
+// -----------------------------------------------------------------------------
 @use "base/base";
 @use "base/breakpoints";
 @use "base/colors";
@@ -18,23 +20,32 @@ Text Domain: catrescue
 @use "base/spacing";
 @use "base/typography";
 
-// Components
+// -----------------------------------------------------------------------------
+// Components: Reusable UI components such as buttons, forms, and navigation
+// -----------------------------------------------------------------------------
 @use "components/buttons";
 @use "components/forms";
 @use "components/navigation";
 @use "components/searchform";
 @use "components/thumbnail";
+@use "components/wp-block-table";
 
-// Layout
+// -----------------------------------------------------------------------------
+// Layout: Styles for the main layout components like header and footer
+// -----------------------------------------------------------------------------
 @use "layout/footer";
 @use "layout/header";
 @use "layout/main";
 @use "layout/search";
 
-// Pages
+// -----------------------------------------------------------------------------
+// Pages: Page-specific styles
+// -----------------------------------------------------------------------------
 @use "pages/cats";
 @use "pages/home";
 @use "pages/donation";
 
-// Vendors
+// -----------------------------------------------------------------------------
+// Vendor: Third-party styles
+// -----------------------------------------------------------------------------
 @use "vendors/ninja-forms";

@@ -12,13 +12,13 @@ if ( ! function_exists( 'get_field' ) ) {
 }
 
 $blog_headline = get_field( 'blog_headline' );
-$args          = array(
+$args          = [
 	'posts_per_page' => 6,
 	'orderby'        => 'date',
 	'order'          => 'DESC',
 	'post_type'      => 'post',
 	'post_status'    => 'publish',
-);
+];
 $blog_teaser   = new WP_Query( $args );
 ?>
 

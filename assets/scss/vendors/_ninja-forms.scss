@@ -1,24 +1,13 @@
-@use "../base/typography";
-
-.nf-form-cont {
+body .nf-form-content {
 	margin: 20px 0 0;
+	padding: 0;
 
 	.nf-before-form-content,
 	.nf-after-form-content {
 		display: none;
 	}
 
-	.label-right .field-wrap {
-		flex-direction: column;
-
-		.nf-field-label label {
-			font-size: 16px;
-			font-weight: 200;
-		}
-
-		.nf-field-description {
-			font-size: 15px;
-			margin-top: 10px;
-		}
+	.nf-field-label label {
+		font-size: 16px;
 	}
 }

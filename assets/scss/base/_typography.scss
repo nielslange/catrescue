@@ -1,3 +1,5 @@
+@use "colors";
+
 @font-face {
 	font-family: "Viga";
 	src: url(./assets/fonts/Viga/Viga-Regular.ttf);
@@ -158,6 +160,7 @@ body {
 	font-size: 18px;
 	font-size: 1rem;
 	line-height: 1.75;
+	color: colors.$text;
 
 	a {
 		text-decoration: none;
